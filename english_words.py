@@ -111,7 +111,14 @@ class EnglishWords(BaseClass):
             for line in file:
                 line: str = line.strip()
 
-                if re.findall(r'^#[а-я]+?\:[a-z]+$', line) or re.findall(r'^# [а-я]+?\:[a-z]+$', line) :
+                if line == '':
+                    continue
+
+                if re.findall(r'^#.+', line):
+                    print(f'Пропускаем комментарий - {line}')
+                    continue
+
+                if re.findall(r'^#[а-я]+?\:[a-z]+$', line) or re.findall(r'^# [а-я]+?\:[a-z]+$', line):
                     continue
 
                 if re.findall(r'^[а-я]+?\:[a-z]+$', line):
