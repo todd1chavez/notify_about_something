@@ -115,7 +115,6 @@ class EnglishWords(BaseClass):
                     continue
 
                 if re.findall(r'^#.+', line):
-                    print(f'Пропускаем комментарий - {line}')
                     continue
 
                 if re.findall(r'^#[а-я]+?\:[a-z]+$', line) or re.findall(r'^# [а-я]+?\:[a-z]+$', line):

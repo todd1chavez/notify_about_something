@@ -1,17 +1,17 @@
 # порядочный:decent
 # весна:spring
-избегать:avoid
+# избегать:avoid
 # объединенный:united
 # счет:score
 исчезнуть:disappear
-незнакомец:stranger
+# незнакомец:stranger
 # точное:exact
 # вред:harm
 # недавно:recently
-снег:snow
+# снег:snow
 состояние:fortune
 удар:strike
-маскарадный:fancy
+# маскарадный:fancy
 
 страхование:insurance
 мода:fashion

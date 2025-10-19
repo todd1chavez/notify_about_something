@@ -50,14 +50,15 @@ class Services:
 
             module_name: str = list_of_arguments[1]
             if not (module_name in available_modules):
-                text: str = f'Такого модуля нет - {module_name}\nДоступные - {available_modules}'
+                text: str = f'Такого модуля нет - {module_name}'
                 print(text)
+                print('Доступные -', ', '.join(list(available_modules)))
                 exit()
 
 
         # ВЫШЕ ОПРЕДЕЛЕНИЕ ФУНКЦИЙ
 
-        available_modules: Tuple = ('english_words',)
+        available_modules: Tuple = ('english_words', 'math_tasks')
 
         Arguments = namedtuple('Arguments', ['module_name', 'arguments'])
         list_of_arguments: List[str] = sys.argv
@@ -90,4 +91,4 @@ class BaseClass(Services, ABC):
     def get_information_for_notification(self):
         # Этот метод должен возвращать информацию для уведомления
         # Словарь с двумя полями - заголовок, описание
-        pass
+        raise ValueError('Обязательный класс для реализации')
