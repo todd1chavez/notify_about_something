@@ -1,8 +1,11 @@
+from typing import List, Tuple
 from abc import ABC, abstractmethod
 import os
 import time
 import subprocess
 from dataclasses import dataclass
+from collections import namedtuple
+import sys
 
 
 
@@ -35,6 +38,49 @@ class Services:
             os.path.join(os.path.dirname(__file__)) 
         )                                                    
         return project_path
+
+
+    @classmethod
+    def get_arguments(cls) -> Tuple:
+        """ Получаем аргументы, переданные в скрипт """
+        
+        def check_module() -> None:
+            nonlocal list_of_arguments
+            if not (len(list_of_arguments) > 1): return
+
+            module_name: str = list_of_arguments[1]
+            if not (module_name in available_modules):
+                text: str = f'Такого модуля нет - {module_name}\nДоступные - {available_modules}'
+                print(text)
+                exit()
+
+
+        # ВЫШЕ ОПРЕДЕЛЕНИЕ ФУНКЦИЙ
+
+        available_modules: Tuple = ('english_words',)
+
+        Arguments = namedtuple('Arguments', ['module_name', 'arguments'])
+        list_of_arguments: List[str] = sys.argv
+        check_module()
+
+        if len(list_of_arguments) >= 4:
+            text: str = 'Такое количество аргументов не обрабатывается'
+            print(text)
+            exit()
+        elif len(list_of_arguments) > 2:
+            module_name: str = list_of_arguments[1]
+            arguments: List[str] = list_of_arguments[2:]
+            arguments: Arguments = Arguments(
+                module_name=module_name,
+                arguments=arguments
+            )
+            return arguments
+        elif len(list_of_arguments) == 2:
+            text: str = 'Не было передано аргументов'
+            print(text)
+            exit()
+        else:
+            pass
 
 
 

@@ -1,2 +1,20 @@
-russian_word:english_word
-# russian_word:english_word
+# порядочный:decent
+# весна:spring
+избегать:avoid
+# объединенный:united
+# счет:score
+исчезнуть:disappear
+незнакомец:stranger
+# точное:exact
+# вред:harm
+# недавно:recently
+снег:snow
+состояние:fortune
+удар:strike
+маскарадный:fancy
+страхование:insurance
+мода:fashion
+стадо:drove
+склад:stock
+dog:собака
+собака:dog

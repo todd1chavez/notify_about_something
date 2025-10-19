@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Tuple
 from abc import ABC, abstractmethod
 import os
 import time
@@ -28,6 +28,7 @@ class EnglishWords(BaseClass):
     """ Повторяем английские слова """
 
     def __init__(self):
+        self.module_name: str = 'english_words'
         self.project_path: str = self.get_project_path()
         self.path_to_db: str = f'{self.project_path}/db/english_words.json'
 
@@ -115,6 +116,8 @@ class EnglishWords(BaseClass):
 
                 if re.findall(r'^[а-я]+?\:[a-z]+$', line):
                     all_words_from_file.append(line)
+                elif re.findall(r'^[a-z]+?\:[а-я]+$', line):
+                    all_words_from_file.append(line)
                 else:
                     text: str = f'\nСлово записано неправильно - {line}\n'
                     notification: Notification = Notification(
@@ -135,6 +138,22 @@ class EnglishWords(BaseClass):
             exit()
 
         return all_words_from_file
+
+
+    def get_all_words_from_db(self) -> List[str]:
+        """ Получаем все слова из базы данных """
+        
+        result: List[str] = []
+
+        with open(self.path_to_db) as file:
+            content = file.read()
+            db = json.loads(content)
+
+        for object_of_word in db['words'].values():
+            line = object_of_word['line']
+            result.append(line)
+
+        return result
 
 
     def get_word_to_repeat(self, all_words_from_file: List[str]) -> str:
@@ -180,14 +199,36 @@ class EnglishWords(BaseClass):
         return word
 
 
-    def get_information_for_notification(self) -> Notification:
+    def get_translation_of_word(self, arguments: Tuple, all_words_from_file: List[str]) -> str:
+        """ Получаем перевод слова """
+
+        word_to_translate: str = arguments.arguments[0]
+
+        for words in all_words_from_file:
+            result = re.findall(':' + word_to_translate + '$', words)
+            if result: return words.split(':')[0]
+
+        text: str = f'Перевод для "{word_to_translate}" не найден'
+        return text
+
+
+    def get_information_for_notification(self, arguments: Tuple | None) -> Notification:
         """ Получаем информацию для уведомления """
-        
-        all_words_from_file: List[str] = self.get_all_words_from_file()
-        self.save_word(all_words_from_file)
-        word: str = self.get_word_to_repeat(all_words_from_file)
-        information_for_notification: Notification = Notification(
-            title='Word to repeat',
-            content=word
-        )
+
+        if arguments and arguments.module_name == self.module_name:
+            all_words_from_file: List[str] = self.get_all_words_from_db()
+            word = self.get_translation_of_word(arguments, all_words_from_file)
+            information_for_notification: Notification = Notification(
+                title='Word to repeat',
+                content=word
+            )
+        else:
+            all_words_from_file: List[str] = self.get_all_words_from_file()
+            self.save_word(all_words_from_file)
+            word: str = self.get_word_to_repeat(all_words_from_file)
+            information_for_notification: Notification = Notification(
+                title='Word to repeat',
+                content=word
+            )
+
         return information_for_notification

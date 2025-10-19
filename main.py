@@ -2,7 +2,7 @@ from typing import List, Tuple, Dict
 import subprocess
 
 from english_words import EnglishWords
-from services import Notification
+from services import Services, Notification
 
 
 
@@ -10,11 +10,12 @@ notification_topics: List = [
     EnglishWords(),
 ]
 
-def main() -> None:
+
+def main(arguments: Tuple | None) -> None:
     """ Точка входа """
 
     for notification_topic in notification_topics:
-        information_for_notification: Notification = notification_topic.get_information_for_notification()
+        information_for_notification: Notification = notification_topic.get_information_for_notification(arguments)
         subprocess.run([
             'notify-send',
             '-t', '0',
@@ -23,6 +24,6 @@ def main() -> None:
         ])
 
 
-
 if __name__ == '__main__':
-    main()
+    arguments: Tuple | None = Services.get_arguments()
+    main(arguments)
