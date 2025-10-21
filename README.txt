@@ -16,3 +16,6 @@ check_english_word.sh - файл модуля english_words.py. Использу
 
 ew.sh - файл через который запускается весь скрипт. Чтобы он начал работать автоматически, в crontab -e нужно добавить такую строку:
 */30 * * * * /home/me/foo/utility/notify_about_something/ew.sh >> /tmp/cron_log.log 2>&1
+
+
+в ~/.zshrc добавить алиас, чтобы быстро открывать - alias rew="nv /home/me/foo/utility/notify_about_something/list_of_english_words.txt"

@@ -3,17 +3,22 @@
 # избегать:avoid
 # объединенный:united
 # счет:score
-исчезнуть:disappear
+# исчезнуть:disappear
 # незнакомец:stranger
 # точное:exact
 # вред:harm
 # недавно:recently
 # снег:snow
-состояние:fortune
-удар:strike
+# состояние:fortune
+# удар:strike
 # маскарадный:fancy
 
 страхование:insurance
-мода:fashion
-стадо:drove
-склад:stock
+# мода:fashion
+# стадо:drove
+# склад:stock
+
+форма:shape
+синхронизация:timing
+гарантия:guarantee
+лагерь:camp
