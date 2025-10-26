@@ -8,7 +8,7 @@ from services import Services, Notification
 
 
 notification_topics: List = [
-    MathTasks(),
+    # MathTasks(),
     EnglishWords(),
 ]
 

@@ -13,12 +13,35 @@
 # удар:strike
 # маскарадный:fancy
 
-страхование:insurance
+# страхование:insurance
 # мода:fashion
 # стадо:drove
 # склад:stock
 
-форма:shape
-синхронизация:timing
-гарантия:guarantee
-лагерь:camp
+# форма:shape
+# синхронизация:timing
+# гарантия:guarantee
+# лагерь:camp
+# карьера:career
+# проснулся:woke
+# источник:source
+# эгоистичный:selfish
+
+# посещать:attend
+# доступ:access
+# масло:oil
+# мудрый:wise
+# период:period
+# кукла:doll
+# преданный:devoted
+
+# существовать:exist
+# пара:pair
+# вешалка:peg
+# велосипед:bike
+# стресс:stress
+# разрешение:permission
+
+# разница:difference
+# церемония:ceremony
+# возможность:possibility
