@@ -13,6 +13,18 @@ notification_topics: List = [
 ]
 
 
+def show_notification(information_for_notification: List[Notification]) -> None:
+    """ Показываем уведомление """
+    
+    for notification in information_for_notification:
+        subprocess.run([
+            'notify-send',
+            '-t', '0',
+            notification.title,
+            notification.content,
+        ])
+
+
 def main(arguments: Tuple | None) -> None:
     """ Точка входа """
 
@@ -20,13 +32,9 @@ def main(arguments: Tuple | None) -> None:
 
         if arguments and arguments.module_name == 'english_words' and not isinstance(notification_topic, EnglishWords): continue
 
-        information_for_notification: Notification = notification_topic.get_information_for_notification(arguments)
-        subprocess.run([
-            'notify-send',
-            '-t', '0',
-            information_for_notification.title,
-            information_for_notification.content,
-        ])
+        information_for_notification: List[Notification] = notification_topic.get_information_for_notification(arguments)
+        show_notification(information_for_notification)
+
 
 
 if __name__ == '__main__':

@@ -47,20 +47,15 @@ class EnglishWords(BaseClass):
 
         for line in all_words_from_file:
 
+            if re.findall(r'^-\s?[а-я|a-z]+', line):
+                line = re.sub(r'^-\s?', '', line)
+
             if line in [word.get('line') for word in db['words'].values() if db['words']]:
-                """
-                subprocess.run([
-                    'notify-send',
-                    '-t', '0',
-                    'Word to repeat',
-                    f'The word has already been added - {line}'
-                ])
-                """
                 continue
 
             current_time: int = round(time.time())
-            russian_word, english_word = line.split(':')
 
+            russian_word, english_word = line.split(':')
             data: Dict = {
                 'time': current_time,
                 'line': line,
@@ -120,9 +115,13 @@ class EnglishWords(BaseClass):
                 if re.findall(r'^#[а-я]+?\:[a-z]+$', line) or re.findall(r'^# [а-я]+?\:[a-z]+$', line):
                     continue
 
-                if re.findall(r'^[а-я]+?\:[a-z]+$', line):
+                if re.findall(r'^-\s?[а-я|\s]+?\:[a-z|\s]+$', line):
                     all_words_from_file.append(line)
-                elif re.findall(r'^[a-z]+?\:[а-я]+$', line):
+                elif re.findall(r'^-\s?[a-z|\s]+?\:[а-я|\s]+$', line):
+                    all_words_from_file.append(line)
+                elif re.findall(r'^[а-я|\s]+?\:[a-z|\s]+$', line):
+                    all_words_from_file.append(line)
+                elif re.findall(r'^[a-z|\s]+?\:[а-я|\s]+$', line):
                     all_words_from_file.append(line)
                 else:
                     text: str = f'\nСлово записано неправильно - {line}\n'
@@ -162,15 +161,16 @@ class EnglishWords(BaseClass):
         return result
 
 
-    def get_word_to_repeat(self, all_words_from_file: List[str]) -> str:
+    def get_words_to_repeat(self, all_words_from_file: List[str]) -> List[str]:
         """ Получаем слово для повторения """
+
+        result: List[str] = []
 
         with open(self.path_to_db) as file:
             content = file.read()
             db = json.loads(content)
 
         last_word_number: int | None = db.get('last_word_number')
-
 
 
         if last_word_number is not None and len(all_words_from_file) == 1:
@@ -202,7 +202,14 @@ class EnglishWords(BaseClass):
         with open(self.path_to_db, 'w') as file:
             json.dump(db, file)
 
-        return word
+        result.append(word)
+
+        for word in all_words_from_file:
+            if not re.findall(r'^-', word): continue
+            word = word.split(':')[0].strip()
+            result.append(word)
+
+        return result
 
 
     def get_translation_of_word(self, arguments: Tuple, all_words_from_file: List[str]) -> str:
@@ -218,7 +225,26 @@ class EnglishWords(BaseClass):
         return text
 
 
-    def get_information_for_notification(self, arguments: Tuple | None) -> Notification:
+    def generate_result(self, words: List[str]) -> List[Notification]:
+        """ Формируем результат """
+
+        result: List[Notification] = []
+
+        for word in words:
+            if re.findall(r'^-', word):
+                word = re.sub(r'^-\s?', '', word).strip()
+                word = f'add: {word}'
+
+            information_for_notification: Notification = Notification(
+                title='Word to repeat',
+                content=word
+            )
+            result.append(information_for_notification)
+
+        return result
+
+
+    def get_information_for_notification(self, arguments: Tuple | None) -> List[Notification]:
         """ Получаем информацию для уведомления """
 
         if arguments and arguments.module_name == self.module_name:
@@ -228,13 +254,11 @@ class EnglishWords(BaseClass):
                 title='Word to repeat',
                 content=word
             )
+            result = [information_for_notification]
         else:
             all_words_from_file: List[str] = self.get_all_words_from_file()
             self.save_word(all_words_from_file)
-            word: str = self.get_word_to_repeat(all_words_from_file)
-            information_for_notification: Notification = Notification(
-                title='Word to repeat',
-                content=word
-            )
+            words: List[str] = self.get_words_to_repeat(all_words_from_file)
+            result: List[Notification] = self.generate_result(words)
 
-        return information_for_notification
+        return result
