@@ -161,10 +161,8 @@ class EnglishWords(BaseClass):
         return result
 
 
-    def get_words_to_repeat(self, all_words_from_file: List[str]) -> List[str]:
-        """ Получаем слово для повторения """
-
-        result: List[str] = []
+    def add_new_word_for_repeat(self, all_words_from_file: List[str], words_to_repeat) -> None:
+        """ Добавляем новое слово для повторения """
 
         with open(self.path_to_db) as file:
             content = file.read()
@@ -202,14 +200,29 @@ class EnglishWords(BaseClass):
         with open(self.path_to_db, 'w') as file:
             json.dump(db, file)
 
-        result.append(word)
+        words_to_repeat.append(word)
 
+
+    def add_permanent_words(self, all_words_from_file: List[str], words_to_repeat) -> None:
+        """ Добавляем постоянные слова """
+        
         for word in all_words_from_file:
             if not re.findall(r'^-', word): continue
             word = word.split(':')[0].strip()
-            result.append(word)
+            words_to_repeat.append(word)
 
-        return result
+
+    def get_words_to_repeat(self, all_words_from_file: List[str]) -> List[str]:
+        """ Получаем слово для повторения """
+
+        words_to_repeat: List[str] = []
+
+        self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем первое слово
+        self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем второе слово
+
+        self.add_permanent_words(all_words_from_file, words_to_repeat)
+
+        return words_to_repeat
 
 
     def get_translation_of_word(self, arguments: Tuple, all_words_from_file: List[str]) -> str:
