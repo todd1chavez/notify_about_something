@@ -15,6 +15,14 @@ class Notification:
     content: str
 
 
+@dataclass
+class Rule:
+    added: int = 0
+    id: int = 0
+    question: str = ''
+    answer: str = ''
+
+
 class Services:
 
     def __init__(self) -> None:
@@ -58,7 +66,7 @@ class Services:
 
         # ВЫШЕ ОПРЕДЕЛЕНИЕ ФУНКЦИЙ
 
-        available_modules: Tuple = ('english_words', 'math_tasks')
+        available_modules: Tuple = ('english_words', 'math_tasks', 'english_rules')
 
         Arguments = namedtuple('Arguments', ['module_name', 'arguments'])
         list_of_arguments: List[str] = sys.argv

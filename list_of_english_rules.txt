@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules>
+
+    <date_marker>04-11-2025</date_marker>
+
+    <qa id="1">
+        Структура утвердительного предложения во времени Present Simple.
+    ---
+        Subject + to be / V1 + other.
+    </qa>
+
+    <qa id="2">
+        Структура отрицательного предложения во времени Present Simple.
+    ---
+        Subject + don't / doens't + V1 + other.
+    </qa>
+
+    <qa id="3">
+        Структура вопросительного предложения во времени Present Simple.
+    ---
+        Do / Does + subject + V1 + other?
+    </qa>
+
+    <qa id="4">
+        Структура утвердительного предложения во времени Past Simple.
+    ---
+        Subject + V2 + other.
+    </qa>
+
+    <qa id="5">
+        Структура отрицательного предложения во времени Past Simple.
+    ---
+        Subject + didn't + V1 + other.
+    </qa>
+
+    <qa id="6">
+        Структура вопросительного предложения во времени Past Simple.
+    ---
+        Did subject + V1 + other.
+    </qa>
+
+    <qa id="7">
+        Структура утвердительного предложения во времени Future Simple.
+    ---
+        Subject + will + V1 + other.
+    </qa>
+
+    <qa id="8">
+        Структура отрицательного предложения во времени Future Simple.
+    ---
+        Subject + won't + V1 + other.
+    </qa>
+
+    <qa id="9">
+        Структура вопросительного предложения во времени Future Simple.
+    ---
+        Will + subject + V1 + other?
+    </qa>
+
+</rules>
