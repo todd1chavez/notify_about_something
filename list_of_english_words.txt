@@ -1,4 +1,8 @@
-- уверенность:confidence
+# Здесь слова, которые повторяются постоянно
+# - уверенность:confidence
+
+# Здесь правила
+# - уверенность:confidence
 
 # порядочный:decent
 # весна:spring
@@ -53,12 +57,81 @@
 # освобождать:release
 # радость:joy
 # собственность:property
-потрясающий:fabulous
+# потрясающий:fabulous
 # видение:vision
 # битва:battle
-срок:term
+# срок:term
 # дьявол:devil
 
 # 27-10-2025
-товарищ:fellow
-гнев:anger
+# товарищ:fellow
+# гнев:anger
+
+# 28-10-2025
+# грудная клетка:chest
+# извинение:apology
+# медовый месяц:honeymoon
+# мокрый:wet
+# подвешанный:hung
+# залог:bail
+# защита:protection
+
+# 29-10-2025
+# рассвет:dawn
+# кампания:campaign
+# чувствительный:sensitive
+# мыть:wash
+# китайский:chinese
+
+# 30-10-2025
+# карман:pocket
+# кому:whom
+# плечо:shoulder
+# беспокоящий:worrying
+# талант:talent
+# грубый:rude
+# мягкий:soft
+# трещина:crack
+
+# 30-10-2025
+# между тем:meantime
+# судьба:fate
+# закапывать:bury
+# преследовать:chase
+# бросать:cast
+# рак:cancer
+# обнимать:hug
+
+# 01-11-2025
+# оставаться:remain
+# выпускной:prom
+# горло:throat
+# концентрат:concentrate
+# экипаж:crew
+# полночь:midnight
+# намереваться:intend
+
+# 03-11-2025
+# отремонтировать:renovate
+# полностью:totally
+# точный:exact
+# мужество:guts
+# стыд:shame
+# чувство вины:guilt
+# правила:terms
+# язык:tongue
+# прерывать:interrupt
+# бревно:log
+
+# 04-11-2025
+расстояние:distance
+конференция:conference
+лечение:treatment
+обувь:shoes
+подвал:basement
+кошелек:purse
+очки:glasses
+вселенная:universe
+рана:wound
+странный:odd
+доля:stake
