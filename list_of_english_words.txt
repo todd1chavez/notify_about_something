@@ -124,14 +124,54 @@
 # бревно:log
 
 # 04-11-2025
-расстояние:distance
-конференция:conference
-лечение:treatment
-обувь:shoes
-подвал:basement
-кошелек:purse
-очки:glasses
-вселенная:universe
-рана:wound
-странный:odd
-доля:stake
+# расстояние:distance
+# конференция:conference
+# лечение:treatment
+# обувь:shoes
+# подвал:basement
+# кошелек:purse
+# очки:glasses
+# вселенная:universe
+# рана:wound
+# странный:odd
+# доля:stake
+
+# 06-11-2025
+# помолвка:engagement
+# терапия:therapy
+# журнал:magazine
+# потрясающий:awesome
+# шеф повар:chef
+# гений:genius
+# неприятный:nasty
+# грязь:dirt
+# связь:bond
+
+# 09-11-2025
+# мощный:powerful
+# чрезвычайно:extremely
+# полностью:entirely
+# предъявлять иск:sue
+# подсчет:counting
+# похищение:kidnapping
+# площадь:square
+# уборка:cleaning
+# ловушка:trap
+# тур:tour
+
+# 11-11-2025
+# захваченный:trapped
+# спорить:argue
+очаровательный:charming
+привлекательный:attractive
+# кнут:whip
+установившийся:settled
+проложенный:laid
+# тревога:alarm
+# лестница:staircase
+
+# 13-11-2025
+маршрут:route
+упомянуть:mention
+кровотечение:bleeding
+вероятный:likely
