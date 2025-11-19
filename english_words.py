@@ -246,7 +246,7 @@ class EnglishWords(BaseClass):
         for word in words:
             if re.findall(r'^-', word):
                 word = re.sub(r'^-\s?', '', word).strip()
-                word = f'add: {word}'
+                word = f'+ {word}'
 
             information_for_notification: Notification = Notification(
                 title='English word to repeat',

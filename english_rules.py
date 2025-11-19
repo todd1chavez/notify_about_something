@@ -236,7 +236,6 @@ class EnglishRules(BaseClass):
         rules_to_repeat: List[Tuple] = []
 
         self.add_new_rule_for_repeat(all_rules_from_file, rules_to_repeat) # Добавляем первое правило
-        self.add_new_rule_for_repeat(all_rules_from_file, rules_to_repeat) # Добавляем второе правило
 
         # self.add_permanent_words(all_words_from_file, words_to_repeat)
 
