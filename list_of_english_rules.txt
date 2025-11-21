@@ -177,4 +177,40 @@
     ---
         Subject + be going to + V1 + other.
     </qa>
+
+    <qa id="30">
+        Какие местоимения используется с прошедшей формой was глагола to be?
+    ---
+        I, He, She, It
+    </qa>
+
+    <qa id="31">
+        Структура отрицательного предложения с модальным глаголом have to во времени Past Simple.
+    ---
+        Subject + didn't have to + V1 + other.
+    </qa>
+
+    <qa id="32">
+        Структура отрицательного предложения с модальным глаголом have to во времени Present Simple.
+    ---
+        Subject + don't have to / doesn't have to + V1 + other.
+    </qa>
+
+    <qa id="33">
+        Структура утвердительного предложения с модальным глаголом have to во времени Past Simple.
+    ---
+        Subject + had to + V1 + other.
+    </qa>
+
+    <qa id="34">
+        Какие местоимения используются с глаголом is?
+    ---
+        He, She, It
+    </qa>
+
+    <qa id="35">
+        Какие местоимения используются с глаголом am?
+    ---
+        I
+    </qa>
 </rules>

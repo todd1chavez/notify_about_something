@@ -1,8 +1,9 @@
 # Здесь слова, которые повторяются постоянно
 # - уверенность:confidence
 
-# Здесь правила
-# - уверенность:confidence
+# Неправильные глаголы
+# - давать взаймы:lend lent lent
+# - освещать:light lit lit
 
 # порядочный:decent
 # весна:spring
@@ -162,16 +163,78 @@
 # 11-11-2025
 # захваченный:trapped
 # спорить:argue
-очаровательный:charming
-привлекательный:attractive
+# очаровательный:charming
+# привлекательный:attractive
 # кнут:whip
-установившийся:settled
-проложенный:laid
+# установившийся:settled
+# проложенный:laid
 # тревога:alarm
 # лестница:staircase
 
 # 13-11-2025
-маршрут:route
-упомянуть:mention
-кровотечение:bleeding
-вероятный:likely
+# маршрут:route
+# упомянуть:mention
+# кровотечение:bleeding
+# вероятный:likely
+
+# 14-11-2025
+# что-то плохо повторяется
+# ставка:rate
+# печать:stamp
+
+# 15-11-2025
+# бюст:bust
+# чистый:pure
+# ноготь:nail
+# нерв:nerve
+# холм:hill
+# переулок:lane
+
+# 16-11-2025
+# покупка:purchase
+# определенный:certain
+
+# 17-11-2025
+# новый сосед
+# блюдо:meal
+# напиток:beverage
+# сладкий:sweet
+# соленый:salty
+# острый:spicy
+# горький:bitter
+# кислый:sour
+
+# 18-11-2025
+# хлопья:cereal
+# овощи:vegetables
+# фрукты:fruit
+# выпечка:pastry
+# сливочное масло:butter
+# сладости:candy
+# ветчина:ham
+# замок:castle
+
+# 19-11-2025
+# ягоды:berries
+# печенье:biscuits
+# алкоголь:alcohol
+# безалкогольные напитки:soft drinks
+# газировка:soda
+# кокао:cocoa
+# кружка:mug
+# ход:turn
+# болельщик:fun
+# спортсмен:athlete
+
+# 20-11-2025
+# упражнение:exercise
+# тренировка:workout
+# матч:match
+# катание на роликах:roller skating
+# тренер:trainer
+катание на лыжах:skiing
+аэробика:aerobics
+велоспорт:cycling
+вязание:knitting
+шитье:sewing
+коллекционирование:collecting
