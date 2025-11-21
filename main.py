@@ -4,6 +4,7 @@ import subprocess
 from math_tasks import MathTasks
 from english_words import EnglishWords
 from english_rules import EnglishRules
+from english_phrases import EnglishPhrases
 from services import Services, Notification
 
 
@@ -11,6 +12,7 @@ from services import Services, Notification
 notification_topics: List = [
     # MathTasks(),
     EnglishWords(),
+    EnglishPhrases(),
     EnglishRules(),
 ]
 
