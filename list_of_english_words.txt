@@ -238,3 +238,11 @@
 вязание:knitting
 шитье:sewing
 коллекционирование:collecting
+
+# 22-11-2025
+приключение:adventure
+поход:trek
+поездка:trip
+круиз:cruise
+экспедиция:expedition
+открытие:discovery

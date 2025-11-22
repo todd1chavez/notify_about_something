@@ -1,10 +1,25 @@
 # Неправильные глаголы
-# давать взаймы:lend lent lent
-# освещать:light lit lit
+давать взаймы:lend lent lent
+освещать:light lit lit
+давать:give gave given
+забывать:forget forgot forgotten
 
 # 21-11-2025
 писать:write wrote written
 будить:wake woke woken
+понимать:understand understood understood
+
+# 22-11-2025
+запрещать:forbid forbade forbidden
+терять:lose lost lost
+приносить:bring brought brought
+покупать:buy bought bought
+пить:drink drank drunk
+становиться:become became become
+копать:dig dug dug
+подметать:sweep swept swept
+брать:take took taken
 
 
-# Часто ииспользуемые фразы
+# Часто используемые фразы
+# Ничего себе:Good grief
