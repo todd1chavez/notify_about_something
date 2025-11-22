@@ -115,13 +115,13 @@ class EnglishWords(BaseClass):
                 if re.findall(r'^#[а-я]+?\:[a-z]+$', line) or re.findall(r'^# [а-я]+?\:[a-z]+$', line):
                     continue
 
-                if re.findall(r'^-\s?[а-я|\s]+?\:[a-z|\s]+$', line):
+                if re.findall(r'^-\s?[а-я|А-Я|\s|\,|\.|\-|\!]+?\:[a-z|A-Z|\s|\,|\.|\-|\!]+$', line):
                     all_words_from_file.append(line)
-                elif re.findall(r'^-\s?[a-z|\s]+?\:[а-я|\s]+$', line):
+                elif re.findall(r'^-\s?[a-z|A-Z|\s|\,|\.|\-|\!]+?\:[а-я|А-Я|\s|\,|\.|\-|\!]+$', line):
                     all_words_from_file.append(line)
-                elif re.findall(r'^[а-я|\s]+?\:[a-z|\s]+$', line):
+                elif re.findall(r'^[а-я|А-Я|\s|\,|\.|\-|\!]+?\:[a-z|A-Z|\s|\,|\.|\-|\!]+$', line):
                     all_words_from_file.append(line)
-                elif re.findall(r'^[a-z|\s]+?\:[а-я|\s]+$', line):
+                elif re.findall(r'^[a-z|A-Z|\s|\,|\.|\-|\!]+?\:[а-я|А-Я|\s|\,|\.|\-|\!]+$', line):
                     all_words_from_file.append(line)
                 else:
                     text: str = f'\nСлово записано неправильно - {line}\n'
