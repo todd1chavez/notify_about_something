@@ -230,7 +230,7 @@
 # упражнение:exercise
 # тренировка:workout
 # матч:match
-# катание на роликах:roller skating
+# катание на роликах:roller-skating
 # тренер:trainer
 катание на лыжах:skiing
 аэробика:aerobics
