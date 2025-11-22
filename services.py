@@ -66,7 +66,7 @@ class Services:
 
         # ВЫШЕ ОПРЕДЕЛЕНИЕ ФУНКЦИЙ
 
-        available_modules: Tuple = ('english_words', 'math_tasks', 'english_rules')
+        available_modules: Tuple = ('english_words', 'math_tasks', 'english_rules', 'english_phrases')
 
         Arguments = namedtuple('Arguments', ['module_name', 'arguments'])
         list_of_arguments: List[str] = sys.argv

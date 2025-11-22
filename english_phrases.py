@@ -28,7 +28,7 @@ class EnglishPhrases(BaseClass):
     """ Повторяем английские фразы """
 
     def __init__(self):
-        self.module_name: str = 'english_words'
+        self.module_name: str = 'english_phrases'
         self.project_path: str = self.get_project_path()
         self.path_to_db: str = f'{self.project_path}/db/english_phrases.json'
 

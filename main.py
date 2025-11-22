@@ -36,6 +36,7 @@ def main(arguments: Tuple | None) -> None:
 
         if arguments and arguments.module_name == 'english_rules' and not isinstance(notification_topic, EnglishRules): continue
         if arguments and arguments.module_name == 'english_words' and not isinstance(notification_topic, EnglishWords): continue
+        if arguments and arguments.module_name == 'english_phrases' and not isinstance(notification_topic, EnglishPhrases): continue
 
         information_for_notification: List[Notification] = notification_topic.get_information_for_notification(arguments)
         show_notification(information_for_notification)
