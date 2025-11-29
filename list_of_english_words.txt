@@ -232,17 +232,45 @@
 # матч:match
 # катание на роликах:roller-skating
 # тренер:trainer
-катание на лыжах:skiing
-аэробика:aerobics
-велоспорт:cycling
-вязание:knitting
-шитье:sewing
-коллекционирование:collecting
+# катание на лыжах:skiing
+# аэробика:aerobics
+# велоспорт:cycling
+# вязание:knitting
+# шитье:sewing
+# коллекционирование:collecting
 
 # 22-11-2025
-приключение:adventure
-поход:trek
-поездка:trip
-круиз:cruise
-экспедиция:expedition
-открытие:discovery
+# приключение:adventure
+# поход:trek
+# поездка:trip
+# круиз:cruise
+# экспедиция:expedition
+# открытие:discovery
+
+# 23-11-2025
+# побег:escape
+# экскурсия:excursion
+# путешествие:journey
+# путешествовать пешком:hike
+
+# 25-11-2025
+# решение:decision
+# полет:flight
+багаж:luggage
+прибытие:arrival
+# валюта:currency
+# открытка:postcard
+# виза:visa
+
+# 26-11-2025
+определение:definition
+определенный:certain
+чемодан:suitcase
+отправление:departure
+
+# 27-11-2025
+туристическое агенство:travel agency
+путешествовать за границу:to travel abroad
+
+
+# пеший туризм:backpacking

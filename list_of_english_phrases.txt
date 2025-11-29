@@ -1,26 +1,61 @@
 # Неправильные глаголы
-давать взаймы:lend lent lent
-зажигать, освещать:light lit lit
-давать:give gave given
-забывать:forget forgot forgotten
+# давать взаймы:lend lent lent
+# зажигать, освещать:light lit lit
 
 # 21-11-2025
-писать:write wrote written
-будить:wake woke woken
-понимать:understand understood understood
+# писать:write wrote written
+# будить:wake woke woken
+# понимать:understand understood understood
 
 # 22-11-2025
-запрещать - запрещать:forbid forbade forbidden
-терять:lose lost lost
-Ничего себе:Good grief!
-приносить:bring brought brought
-покупать:buy bought bought
-пить:drink drank drunk
-становиться:become became become
-копать:dig dug dug
-подметать:sweep swept swept
-брать:take took taken
+# подметать:sweep swept swept
+# крутить:spin spun spun
 
+# 23-11-2025
+
+# 24-11-2025
+# сжиматься:shrink shrank shrunk
+
+# 25-11-2025
+# вести, лидировать:lead led led
+класть:lay laid laid
+
+# 26-11-2025
+значить:mean meant meant
+платить:pay paid paid
+
+# 27-11-2025
+лежать:lie lay lain
+позволять:let let let
+продавать:sell sold sold
+
+
+
+
+# Все неправильные глаголы
+# водить (машину):drive drove driven
+# рассказывать:tell told told
+# держать, хранить:keep kept kept
+# есть (еду):eat ate eaten
+# цепляться:cling clung clung
+# ездить:ride rode ridden
+# кровоточить:bleed bled bled
+# связывать:bind bound bound
+# запрещать - запрещать:forbid forbade forbidden
+# терять:lose lost lost
+# приносить:bring brought brought
+# покупать:buy bought bought
+# пить:drink drank drunk
+# становиться:become became become
+# копать:dig dug dug
+# брать:take took taken
+# давать:give gave given
+# забывать:forget forgot forgotten
+# приходить:come came come
+# идти:go went gone
+# обматывать, изгибаться:wind wound wound
 
 # Часто используемые фразы
 # Ничего себе:Good grief!
+# Быть наивным:be born yesterday
+# Вчера родиться:be born yesterday
