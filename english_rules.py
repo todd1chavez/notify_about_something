@@ -201,7 +201,7 @@ class EnglishRules(BaseClass):
 
         if last_rule_number is not None and len(all_rules_from_file) == 1:
             rule: Rule = all_rules_from_file[0]
-            rule: Tuple = (rule.id, rule.question)
+            rule: Tuple = (rule.id, rule.question, rule.answer)
             new_last_rule_number = 0
 
 
@@ -212,15 +212,15 @@ class EnglishRules(BaseClass):
                 new_last_rule_number = -1
             try:
                 rule: Rule = all_rules_from_file[last_rule_number]
-                rule: Tuple = (rule.id, rule.question)
+                rule: Tuple = (rule.id, rule.question, rule.answer)
                 new_last_rule_number = last_rule_number
             except IndexError:
                 rule: Rule = all_rules_from_file[0]
-                rule: Tuple = (rule.id, rule.question)
+                rule: Tuple = (rule.id, rule.question, rule.answer)
                 new_last_rule_number = 0
         else:
             rule: Rule = all_rules_from_file[0]
-            rule: Tuple = (rule.id, rule.question)
+            rule: Tuple = (rule.id, rule.question, rule.answer)
             new_last_rule_number = 0
 
         db['last_rule_number'] = new_last_rule_number
@@ -271,10 +271,9 @@ class EnglishRules(BaseClass):
         result: List[Notification] = []
 
         for rule in rules:
-
             information_for_notification: Notification = Notification(
                 title=f'English rule to repeat ({rule[0]})',
-                content=rule[1]
+                content=f'{rule[1]}:::::{rule[2]}'
             )
             result.append(information_for_notification)
 

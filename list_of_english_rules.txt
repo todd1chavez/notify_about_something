@@ -229,4 +229,10 @@
     ---
         Subject + have to / has to + V1 + other.
     </qa>
+
+    <qa id="38">
+        Структура утвердительного предложения с модальным глаголом have to во времени Present Simple. Структура утвердительного предложения с модальным глаголом have to во времени Present Simple. Структура утвердительного предложения с модальным глаголом have to во времени Present Simple.
+    ---
+        Subject + have to / has to + V1 + other.
+    </qa>
 </rules>

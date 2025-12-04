@@ -8,6 +8,7 @@ from english_words import EnglishWords
 from english_rules import EnglishRules
 from english_phrases import EnglishPhrases
 from services import Services, Notification
+from notification import NotificationTkinter
 
 
 
@@ -19,38 +20,28 @@ notification_topics: List = [
 ]
 
 
-def show_notification(information_for_notification: List[Notification]) -> None:
-    """ Показываем уведомление """
+def add_notification_to_list(list_of_notifications: List[Notification], information_for_notification: List[Notification]) -> None:
+    """ Добавляем уведомление в список """
 
     for notification in information_for_notification:
+        list_of_notifications.append(notification)
 
-        if platform.system() == 'Windows':
-            pn.notify(
-               title=notification.title,
-                message=notification.content,
-                app_name='Мое приложение',
-                timeout=10  # время отображения в секундах
-            )
-        else:
-            subprocess.run([
-                'notify-send',
-                '-t', '0',
-                notification.title,
-                notification.content,
-            ])
 
 
 def main(arguments: Tuple | None) -> None:
     """ Точка входа """
 
-    for notification_topic in notification_topics:
+    list_of_notifications: List[Notification] = []
 
+    for notification_topic in notification_topics:
         if arguments and arguments.module_name == 'english_rules' and not isinstance(notification_topic, EnglishRules): continue
         if arguments and arguments.module_name == 'english_words' and not isinstance(notification_topic, EnglishWords): continue
         if arguments and arguments.module_name == 'english_phrases' and not isinstance(notification_topic, EnglishPhrases): continue
 
         information_for_notification: List[Notification] = notification_topic.get_information_for_notification(arguments)
-        show_notification(information_for_notification)
+        add_notification_to_list(list_of_notifications, information_for_notification)
+
+    NotificationTkinter().show_all_notifications(list_of_notifications)
 
 
 

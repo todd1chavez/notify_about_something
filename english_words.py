@@ -12,6 +12,7 @@ from plyer import notification as pn
 
 from services import Notification
 from services import BaseClass, Services
+from notification import NotificationTkinter
 
 
 
@@ -183,7 +184,7 @@ class EnglishWords(BaseClass):
 
         if last_word_number is not None and len(all_words_from_file) == 1:
             line: str = all_words_from_file[0]
-            word: str = line.split(':')[0]
+            word: str = line
             new_last_word_number = 0
 
 
@@ -194,15 +195,15 @@ class EnglishWords(BaseClass):
                 new_last_word_number = -1
             try:
                 line: str = all_words_from_file[last_word_number]
-                word: str = line.split(':')[0]
+                word: str = line
                 new_last_word_number = last_word_number
             except IndexError:
                 line: str = all_words_from_file[0]
-                word: str = line.split(':')[0]
+                word: str = line
                 new_last_word_number = 0
         else:
             line: str = all_words_from_file[0]
-            word: str = line.split(':')[0]
+            word: str = line
             new_last_word_number = 0
 
         db['last_word_number'] = new_last_word_number
