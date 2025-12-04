@@ -8,7 +8,8 @@ import json
 from json.decoder import JSONDecodeError
 import subprocess
 import xml.etree.ElementTree as ET
-from pprint import pprint
+import platform
+from plyer import notification as pn
 
 from services import Notification, Rule
 from services import BaseClass, Services
@@ -23,12 +24,21 @@ def send_notification(title: str, content: str, quit: bool = False) -> None:
         content=content
     )
 
-    subprocess.run([
-        'notify-send',
-        '-t', '0',
-        notification.title,
-        notification.content,
-    ])
+    if platform.system() == 'Windows':
+        pn.notify(
+            title=notification.title,
+            message=notification.content,
+            app_name='time to repeat',
+            timeout=10000
+        )
+    else:
+        subprocess.run([
+            'notify-send',
+            '-t', '0',
+            notification.title,
+            notification.content,
+        ])
+
     if quit: exit()
 
 
@@ -54,7 +64,7 @@ class EnglishRules(BaseClass):
                 'rules': {}
             }
         else:
-            with open(self.path_to_db) as file:
+            with open(self.path_to_db, encoding='utf-8') as file:
                 db: Dict = json.loads(file.read())
 
 
@@ -182,7 +192,7 @@ class EnglishRules(BaseClass):
     def add_new_rule_for_repeat(self, all_rules_from_file: List[Rule], rules_to_repeat) -> None:
         """ Добавляем новое правило для повторения """
 
-        with open(self.path_to_db) as file:
+        with open(self.path_to_db, encoding='utf-8') as file:
             content = file.read()
             db = json.loads(content)
 

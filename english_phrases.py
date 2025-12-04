@@ -7,6 +7,8 @@ import re
 import json
 from json.decoder import JSONDecodeError
 import subprocess
+from plyer import notification as pn
+import platform
 
 from services import Notification
 from services import BaseClass, Services
@@ -16,12 +18,20 @@ from services import BaseClass, Services
 def send_notification(notification: Notification) -> None:
     """ Отправляем уведомление """
 
-    subprocess.run([
-        'notify-send',
-        '-t', '0',
-        notification.title,
-        notification.content,
-    ])
+    if platform.system() == 'Windows':
+        pn.notify(
+           title=notification.title,
+            message=notification.content,
+            app_name='time to repeat',
+            timeout=10000
+        )
+    else:
+        subprocess.run([
+            'notify-send',
+            '-t', '0',
+            notification.title,
+            notification.content,
+        ])
 
 
 class EnglishPhrases(BaseClass):
@@ -41,7 +51,7 @@ class EnglishPhrases(BaseClass):
                 'words': {}
             }
         else:
-            with open(self.path_to_db) as file:
+            with open(self.path_to_db, encoding='utf-8') as file:
                 db: Dict = json.loads(file.read())
 
 
@@ -92,7 +102,7 @@ class EnglishPhrases(BaseClass):
             send_notification(notification)
             exit()
 
-        with open(path_to_file) as file:
+        with open(path_to_file, encoding='utf-8') as file:
             if file.read().strip() == '':
                 text: str = f'\nФайл пустой - {path_to_file}\n'
                 notification: Notification = Notification(
@@ -102,7 +112,7 @@ class EnglishPhrases(BaseClass):
                 send_notification(notification)
                 exit()
 
-        with open(path_to_file) as file:
+        with open(path_to_file, encoding='utf-8') as file:
             for line in file:
                 line: str = line.strip()
 
@@ -150,7 +160,7 @@ class EnglishPhrases(BaseClass):
         
         result: List[str] = []
 
-        with open(self.path_to_db) as file:
+        with open(self.path_to_db, encoding='utf-8') as file:
             content = file.read()
             db = json.loads(content)
 
@@ -164,7 +174,7 @@ class EnglishPhrases(BaseClass):
     def add_new_word_for_repeat(self, all_words_from_file: List[str], words_to_repeat) -> None:
         """ Добавляем новое слово для повторения """
 
-        with open(self.path_to_db) as file:
+        with open(self.path_to_db, encoding='utf-8') as file:
             content = file.read()
             db = json.loads(content)
 

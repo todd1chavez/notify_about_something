@@ -1,5 +1,7 @@
 from typing import List, Tuple, Dict
 import subprocess
+from plyer import notification as pn
+import platform
 
 from math_tasks import MathTasks
 from english_words import EnglishWords
@@ -19,14 +21,23 @@ notification_topics: List = [
 
 def show_notification(information_for_notification: List[Notification]) -> None:
     """ Показываем уведомление """
-    
+
     for notification in information_for_notification:
-        subprocess.run([
-            'notify-send',
-            '-t', '0',
-            notification.title,
-            notification.content,
-        ])
+
+        if platform.system() == 'Windows':
+            pn.notify(
+               title=notification.title,
+                message=notification.content,
+                app_name='Мое приложение',
+                timeout=10  # время отображения в секундах
+            )
+        else:
+            subprocess.run([
+                'notify-send',
+                '-t', '0',
+                notification.title,
+                notification.content,
+            ])
 
 
 def main(arguments: Tuple | None) -> None:
