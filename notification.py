@@ -1,14 +1,18 @@
 from typing import List
+import time
 
 import tkinter as tk
 import ctypes
 from plyer import notification as pn
+import requests
 
 from services import Notification
+from config import TELEGRAM_ADMIN_ID, TELEGRAM_BOT_TOKEN
 
 
 
 class NotificationTkinter:
+    """ Показываем уведомление через tkinter """
 
     def get_content(self, content: str) -> None:
         """ Разделяем вопрос с ответом, если это вопрос и там есть ответ """
@@ -124,4 +128,46 @@ class NotificationTkinter:
         for count, notification in enumerate(list_of_notifications, 1):
             self.create_notify(notification, number_of_notifications=len(list_of_notifications), notification_number=count)
 
-        print('oaoaoaoaoa')
+
+
+class NotificationTelegram:
+    """ Показываем уведомление через telegram """
+
+    def get_content(self, content: str) -> None:
+        """ Разделяем вопрос с ответом, если это вопрос и там есть ответ """
+
+        if ':::::' in content:
+            return content.split(':::::')
+        elif ':' in content:
+            return content.split(':')
+        else:
+            return content
+
+
+    def send_message(self, notification: Notification) -> None:
+        """ Отправляем сообщение с уведомлением """
+
+        result = self.get_content(notification.content)
+        print('result - ', result)
+        if len(result) == 1:
+            text: str = result
+        elif len(result) > 1:
+            text, answer = result
+        else:
+            text: str = f'Такой аргумент не обрабатывается - {result}'
+            raise ValueError(text)
+
+        url: str = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
+        payload = {
+            'chat_id': TELEGRAM_ADMIN_ID,
+            'text': text
+        }
+        requests.post(url, data=payload)
+
+
+    def show_all_notifications(self, list_of_notifications: List[Notification]) -> None:
+        """ Показываем все уведомления """
+
+        for notification in list_of_notifications:
+            self.send_message(notification)
+            time.sleep(1)

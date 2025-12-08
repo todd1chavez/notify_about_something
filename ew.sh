@@ -8,4 +8,5 @@ FILENAME="main.py"
 
 PATH_TO_FILE="$SCRIPT_DIR/$FILENAME"
 
+echo "$PATH_TO_FILE"
 /usr/bin/env python3 "$PATH_TO_FILE"

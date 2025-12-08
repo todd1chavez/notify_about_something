@@ -8,7 +8,7 @@ from english_words import EnglishWords
 from english_rules import EnglishRules
 from english_phrases import EnglishPhrases
 from services import Services, Notification
-from notification import NotificationTkinter
+from notification import NotificationTkinter, NotificationTelegram
 
 
 
@@ -41,7 +41,8 @@ def main(arguments: Tuple | None) -> None:
         information_for_notification: List[Notification] = notification_topic.get_information_for_notification(arguments)
         add_notification_to_list(list_of_notifications, information_for_notification)
 
-    NotificationTkinter().show_all_notifications(list_of_notifications)
+    # NotificationTkinter().show_all_notifications(list_of_notifications)
+    NotificationTelegram().show_all_notifications(list_of_notifications)
 
 
 

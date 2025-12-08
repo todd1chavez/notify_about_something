@@ -35,3 +35,4 @@ ew.sh - файл через который запускается весь ск�
 в ~/.zshrc добавить алиас, чтобы быстро открывать - alias rew="nv /home/me/foo/utility/notify_about_something/list_of_english_words.txt"
 в ~/.zshrc добавить алиас, чтобы быстро открывать - alias rer="nv /home/me/foo/utility/notify_about_something/list_of_english_rules.txt"
 в ~/.zshrc добавить алиас, чтобы быстро открывать - alias rep="nv /home/me/foo/utility/notify_about_something/list_of_english_phrases.txt"
+export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
