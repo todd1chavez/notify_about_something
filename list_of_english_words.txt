@@ -272,5 +272,12 @@
 туристическое агенство:travel agency
 путешествовать за границу:to travel abroad
 
+# 8-12-2025
+маленький город:town
+здание:building
+квартал:block
+площадь:square
+деловой центр города:downtown
+
 
 # пеший туризм:backpacking

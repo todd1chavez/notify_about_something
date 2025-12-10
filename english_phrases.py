@@ -87,6 +87,7 @@ class EnglishPhrases(BaseClass):
         if not os.path.exists(path_to_file):
             text: str = 'Отсутствует файл list_of_english_phrases.txt'
             notification: Notification = Notification(
+                subject='english',
                 title='English irregular verb to repeat',
                 content=text
             )
@@ -96,6 +97,7 @@ class EnglishPhrases(BaseClass):
         if os.path.getsize(path_to_file) == 0:
             text: str = f'\nФайл пустой - {path_to_file}\n'
             notification: Notification = Notification(
+                subject='english',
                 title='English irregular verb to repeat',
                 content=text
             )
@@ -106,6 +108,7 @@ class EnglishPhrases(BaseClass):
             if file.read().strip() == '':
                 text: str = f'\nФайл пустой - {path_to_file}\n'
                 notification: Notification = Notification(
+                    subject='english',
                     title='English irregular verb to repeat',
                     content=text
                 )
@@ -136,6 +139,7 @@ class EnglishPhrases(BaseClass):
                 else:
                     text: str = f'Фраза записано неправильно - {line}\n'
                     notification: Notification = Notification(
+                        subject='english',
                         title='English irregular verb to repeat',
                         content=text
                     )
@@ -146,6 +150,7 @@ class EnglishPhrases(BaseClass):
         if not all_words_from_file:
             text: str = f'Нет фраз для повторения'
             notification: Notification = Notification(
+                subject='english',
                 title='English irregular verb to repeat',
                 content=text
             )
@@ -258,6 +263,7 @@ class EnglishPhrases(BaseClass):
                 word = f'+ {word}'
 
             information_for_notification: Notification = Notification(
+                subject='english',
                 title='English irregular verb to repeat',
                 content=word
             )
@@ -273,6 +279,7 @@ class EnglishPhrases(BaseClass):
             all_words_from_file: List[str] = self.get_all_words_from_db()
             word = self.get_translation_of_word(arguments, all_words_from_file)
             information_for_notification: Notification = Notification(
+                subject='english',
                 title='English irregular verb to repeat',
                 content=word
             )

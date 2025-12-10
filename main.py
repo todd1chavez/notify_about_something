@@ -27,6 +27,20 @@ def add_notification_to_list(list_of_notifications: List[Notification], informat
         list_of_notifications.append(notification)
 
 
+def split_notification_by_topics(list_of_notifications: List[Notification]) -> Dict:
+    
+    all_notification_topics: Dict = {}
+
+    for notification in list_of_notifications:
+        if all_notification_topics.get(notification.subject, None):
+            all_notification_topics[notification.subject].append(notification)
+        else:
+            all_notification_topics[notification.subject] = [notification]
+            print(all_notification_topics)
+
+    return all_notification_topics
+
+
 
 def main(arguments: Tuple | None) -> None:
     """ Точка входа """
@@ -41,7 +55,7 @@ def main(arguments: Tuple | None) -> None:
         information_for_notification: List[Notification] = notification_topic.get_information_for_notification(arguments)
         add_notification_to_list(list_of_notifications, information_for_notification)
 
-    # NotificationTkinter().show_all_notifications(list_of_notifications)
+    list_of_notifications: Dict = split_notification_by_topics(list_of_notifications)
     NotificationTelegram().show_all_notifications(list_of_notifications)
 
 

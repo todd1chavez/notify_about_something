@@ -1,5 +1,6 @@
-from typing import List
+from typing import List, Dict
 import time
+import re
 
 import tkinter as tk
 import ctypes
@@ -144,30 +145,59 @@ class NotificationTelegram:
             return content
 
 
-    def send_message(self, notification: Notification) -> None:
+    def send_message(self, notification: str) -> None:
         """ Отправляем сообщение с уведомлением """
-
-        result = self.get_content(notification.content)
-        print('result - ', result)
-        if len(result) == 1:
-            text: str = result
-        elif len(result) > 1:
-            text, answer = result
-        else:
-            text: str = f'Такой аргумент не обрабатывается - {result}'
-            raise ValueError(text)
 
         url: str = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
         payload = {
             'chat_id': TELEGRAM_ADMIN_ID,
-            'text': text
+            'text': notification,
+            'parse_mode': 'MarkdownV2'
         }
-        requests.post(url, data=payload)
+        response = requests.post(url, data=payload)
+        print(response.text)
 
 
-    def show_all_notifications(self, list_of_notifications: List[Notification]) -> None:
+    def escape_markdown_v2(self, text: str) -> str:
+        # Символы, которые надо экранировать в MarkdownV2
+        # escape_chars = r'_*[]()~`>#\\+-=\\|{}\\./!",\'\\?'
+        # return re.sub(f'([{re.escape(escape_chars)}])', r'\\\1', text)
+        return re.escape(text)
+
+
+    def create_general_notification_english(self, list_of_notifications: List) -> str:
+        """ Создаем общее уведомление """
+
+        result: str = 'Words, phrases, rules for repetition:\n\n'
+        full_answer: str = ''
+
+        for count, notification in enumerate(list_of_notifications, 1):
+            content = self.get_content(notification.content)
+
+            if len(content) == 1:
+                message: str = content
+            elif len(content) > 1:
+                question, answer = content
+                result += f'{count}. {question}\n'
+                full_answer += f'{count}. {answer}\n'
+            else:
+                raise ValueError(f'Такой аргумент не обрабатывается - {content}')
+
+        escaped_full_answer = self.escape_markdown_v2(full_answer)
+
+        result += f'\nThe answers are bellow:\n\n'
+        result = re.escape(result)
+        result += f'||{escaped_full_answer}||'
+        print(result)
+
+        return result
+
+
+    def show_all_notifications(self, list_of_notifications: Dict) -> None:
         """ Показываем все уведомления """
 
-        for notification in list_of_notifications:
-            self.send_message(notification)
-            time.sleep(1)
+        for subject in list_of_notifications:
+            if subject == 'english':
+                notification: str = self.create_general_notification_english(list_of_notifications[subject])
+                self.send_message(notification)
+

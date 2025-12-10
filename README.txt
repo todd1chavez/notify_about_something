@@ -35,4 +35,14 @@ ew.sh - файл через который запускается весь ск�
 в ~/.zshrc добавить алиас, чтобы быстро открывать - alias rew="nv /home/me/foo/utility/notify_about_something/list_of_english_words.txt"
 в ~/.zshrc добавить алиас, чтобы быстро открывать - alias rer="nv /home/me/foo/utility/notify_about_something/list_of_english_rules.txt"
 в ~/.zshrc добавить алиас, чтобы быстро открывать - alias rep="nv /home/me/foo/utility/notify_about_something/list_of_english_phrases.txt"
+
 export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
+
+#!/bin/bash
+
+# Запустить cron, если не запущен
+if ! pgrep -x "cron" > /dev/null; then
+  sudo service cron start
+fi
+
+ps aux | grep cron

@@ -20,6 +20,7 @@ def send_notification(title: str, content: str, quit: bool = False) -> None:
     """ Отправляем уведомление """
 
     notification: Notification = Notification(
+        subject='english',
         title=title,
         content=content
     )
@@ -272,6 +273,7 @@ class EnglishRules(BaseClass):
 
         for rule in rules:
             information_for_notification: Notification = Notification(
+                subject='english',
                 title=f'English rule to repeat ({rule[0]})',
                 content=f'{rule[1]}:::::{rule[2]}'
             )
@@ -287,6 +289,7 @@ class EnglishRules(BaseClass):
             all_rules_from_file: List[Rule] = self.get_all_rules_from_file()
             answer: str = self.get_answer_to_question(arguments, all_rules_from_file)
             information_for_notification: Notification = Notification(
+                subject='english',
                 title='Right answer',
                 content=answer
             )

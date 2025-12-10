@@ -11,6 +11,7 @@ import sys
 
 @dataclass
 class Notification:
+    subject: str
     title: str
     content: str
 
