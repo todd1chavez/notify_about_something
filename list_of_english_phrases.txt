@@ -1,3 +1,31 @@
+# Все неправильные глаголы
+# водить (машину):drive drove driven
+# рассказывать:tell told told
+# держать, сохранять, соблюдать:keep kept kept
+# есть (еду):eat ate eaten
+# цепляться:cling clung clung
+# ездить:ride rode ridden
+# кровоточить:bleed bled bled
+# связывать:bind bound bound
+# запрещать - запрещать:forbid forbade forbidden
+# терять:lose lost lost
+# приносить:bring brought brought
+# покупать:buy bought bought
+# пить:drink drank drunk
+# становиться:become became become
+# копать:dig dug dug
+брать:take took taken
+# давать:give gave given
+забывать:forget forgot forgotten
+# приходить:come came come
+# идти:go went gone
+# звонить:ring rang rung
+
+# Часто используемые фразы
+# Ничего себе:Good grief!
+# Быть наивным:be born yesterday
+# Вчера родиться:be born yesterday
+
 # Неправильные глаголы
 # давать взаймы:lend lent lent
 # зажигать, освещать:light lit lit
@@ -18,44 +46,59 @@
 
 # 25-11-2025
 # вести, лидировать:lead led led
-класть:lay laid laid
+# класть:lay laid laid
 
 # 26-11-2025
-значить:mean meant meant
-платить:pay paid paid
+# значить:mean meant meant
+# платить:pay paid paid
 
 # 27-11-2025
-лежать:lie lay lain
-позволять:let let let
-продавать:sell sold sold
+# лежать:lie lay lain
+# позволять:let let let
+# продавать:sell sold sold
 
+# 11-12-2025
+# сидеть:sit sat sat
 
+# 09-01-2026
+# стрелять:shoot shot shot
+# светить, сиять:shine shone shone
 
-
-# Все неправильные глаголы
-# водить (машину):drive drove driven
-# рассказывать:tell told told
-# держать, хранить:keep kept kept
-# есть (еду):eat ate eaten
-# цепляться:cling clung clung
-# ездить:ride rode ridden
-# кровоточить:bleed bled bled
-# связывать:bind bound bound
-# запрещать - запрещать:forbid forbade forbidden
-# терять:lose lost lost
-# приносить:bring brought brought
-# покупать:buy bought bought
-# пить:drink drank drunk
-# становиться:become became become
-# копать:dig dug dug
-# брать:take took taken
-# давать:give gave given
-# забывать:forget forgot forgotten
-# приходить:come came come
-# идти:go went gone
+# 18-01-2026
 # обматывать, изгибаться:wind wound wound
+# будить:wake woke woken
 
-# Часто используемые фразы
-# Ничего себе:Good grief!
-# Быть наивным:be born yesterday
-# Вчера родиться:be born yesterday
+# 19-01-2026
+# рвать:tear tore torn
+# искать:seek sought sought
+
+# 20-01-2026
+# возрастать, подниматься:rise rose risen
+# сказать:say said said
+# скользить:slide slid slid
+# пахнуть:smell smelt smelt
+
+# 21-01-2026
+# воровать:steal stole stolen
+
+# 22-01-2026
+# разлить:spill spilt spilt
+# распространять, разворачивать:spread spread spread
+
+# 23-01-2026
+# поражать, ударять:strike struck struck
+
+# 24-01-2026
+показывать:show showed shown
+# закрывать, затворять:shut shut shut
+
+# 25-01-2026
+жалить:sting stung stung
+# расскалывать, разделять:split split split
+
+# 26-01-2026
+опухать:swell swelled swollen
+
+# 27-01-2026
+прощать:forgive forgave forgiven
+кусать:bite bit bitten
