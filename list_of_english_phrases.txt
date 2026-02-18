@@ -4,17 +4,17 @@
 # держать, сохранять, соблюдать:keep kept kept
 # есть (еду):eat ate eaten
 # цепляться:cling clung clung
-# ездить:ride rode ridden
+ездить:ride rode ridden
 # кровоточить:bleed bled bled
 # связывать:bind bound bound
-# запрещать - запрещать:forbid forbade forbidden
+запрещать - запрещать:forbid forbade forbidden
 # терять:lose lost lost
 # приносить:bring brought brought
 # покупать:buy bought bought
 # пить:drink drank drunk
 # становиться:become became become
 # копать:dig dug dug
-брать:take took taken
+# брать:take took taken
 # давать:give gave given
 забывать:forget forgot forgotten
 # приходить:come came come
@@ -89,16 +89,24 @@
 # поражать, ударять:strike struck struck
 
 # 24-01-2026
-показывать:show showed shown
+# показывать:show showed shown
 # закрывать, затворять:shut shut shut
 
 # 25-01-2026
-жалить:sting stung stung
+# жалить:sting stung stung
 # расскалывать, разделять:split split split
 
 # 26-01-2026
-опухать:swell swelled swollen
+# опухать:swell swelled swollen
 
 # 27-01-2026
 прощать:forgive forgave forgiven
 кусать:bite bit bitten
+
+# 04-02-2026
+давать взаймы:lend lent lent
+носить (одежду):wear wore worn
+
+# 10-02-2026
+вонять:stink stank stunk
+клясться, ругаться:swear swore swron

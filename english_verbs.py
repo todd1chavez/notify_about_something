@@ -35,13 +35,13 @@ def send_notification(notification: Notification) -> None:
         ])
 
 
-class EnglishWords(BaseClass):
-    """ Повторяем английские слова """
+class EnglishVerbs(BaseClass):
+    """ Повторяем английские слова (глаголы) """
 
     def __init__(self):
-        self.module_name: str = 'english_words'
+        self.module_name: str = 'english_verbs'
         self.project_path: str = self.get_project_path()
-        self.path_to_db: str = f'{self.project_path}/db/english_words.json'
+        self.path_to_db: str = f'{self.project_path}/db/english_verbs.json'
 
 
     def save_word(self, all_words_from_file: List[str]) -> None:
@@ -84,9 +84,9 @@ class EnglishWords(BaseClass):
         """ Получаем все слова из файла """
 
         all_words_from_file: List[str] = []
-        path_to_file: str = f'{self.project_path}/list_of_english_words.txt'
+        path_to_file: str = f'{self.project_path}/list_of_english_verbs.txt'
         if not os.path.exists(path_to_file):
-            text: str = 'Отсутствует файл list_of_english_words.txt'
+            text: str = 'Отсутствует файл list_of_english_verbs.txt'
             notification: Notification = Notification(
                 subject='english',
                 title='English word to repeat',
@@ -235,7 +235,6 @@ class EnglishWords(BaseClass):
 
         self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем первое слово
         self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем второе слово
-        # self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем третье слово
 
         self.add_permanent_words(all_words_from_file, words_to_repeat)
 
@@ -261,13 +260,14 @@ class EnglishWords(BaseClass):
         result: List[Notification] = []
 
         for word in words:
+
             if re.findall(r'^-', word):
                 word = re.sub(r'^-\s?', '', word).strip()
                 word = f'+ {word}'
 
             information_for_notification: Notification = Notification(
                 subject='english',
-                title='English word to repeat',
+                title='English verb to repeat',
                 content=word
             )
             result.append(information_for_notification)
@@ -283,7 +283,7 @@ class EnglishWords(BaseClass):
             word = self.get_translation_of_word(arguments, all_words_from_file)
             information_for_notification: Notification = Notification(
                 subject='english',
-                title='English word to repeat',
+                title='English verb to repeat',
                 content=word
             )
             result = [information_for_notification]

@@ -348,15 +348,15 @@
 # диван:sofa
 # шкаф:closet
 # туалет:toilet
-умывальник:washbasin
+# умывальник:washbasin
 # кофейный столик:coffee table
 # книжный шкаф:bookcase
 
 # 26-01-2026
-гардероб:wardrobe
+# гардероб:wardrobe
 # ванна:bath
 # кофеварка:coffee maker
-посудомоичная машина:dishwasher
+# посудомоичная машина:dishwasher
 # лампа:lamp
 # микроволновка:microwave
 
@@ -370,17 +370,28 @@
 
 # 30-01-2026
 дядя:uncle
-разный:different
+# разный:different
 однотипный:same
 бедный:poor
 тетя:aunt
 
 # 03-02-2026
-трудный:difficult
-уродливый:ugly
-грязный:dirty
-низкий:low
-плита:stove
-отдыхать:rest
+# трудный:difficult
+# уродливый:ugly
+# грязный:dirty
+# низкий:low
+# плита:stove
+# отдыхать:rest
 
-# носить:wear
+# 04-02-2026
+# пылесос:vacuum cleaner
+# будильник:alarm clock
+# телевизор:TV set
+# ковер:carpet
+
+# 10-02-2026
+одеяло:blanket
+подушка:pillow
+хлебница:bread bin
+простыня:sheet
+рождество:christmas
