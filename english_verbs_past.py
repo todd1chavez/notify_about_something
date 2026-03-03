@@ -35,11 +35,11 @@ def send_notification(notification: Notification) -> None:
         ])
 
 
-class EnglishVerbs(BaseClass):
-    """ Повторяем английские слова (глаголы) """
+class EnglishVerbsPast(BaseClass):
+    """ Повторяем английские слова (неправильные глаголы), которые повторяли ранее """
 
     def __init__(self):
-        self.module_name: str = 'english_words_past'
+        self.module_name: str = 'english_verbs'
         self.project_path: str = self.get_project_path()
         self.path_to_db: str = f'{self.project_path}/db/english_verbs.json'
 
@@ -52,7 +52,7 @@ class EnglishVerbs(BaseClass):
         if not os.path.exists(path_to_file):
             text: str = 'Отсутствует файл list_of_english_verbs.txt'
             notification: Notification = Notification(
-                subject='english_words_past',
+                subject='english',
                 title='English word to repeat',
                 content=text
             )
@@ -62,7 +62,7 @@ class EnglishVerbs(BaseClass):
         if os.path.getsize(path_to_file) == 0:
             text: str = f'\nФайл пустой - {path_to_file}\n'
             notification: Notification = Notification(
-                subject='english_words_past',
+                subject='english',
                 title='English word to repeat',
                 content=text
             )
@@ -73,7 +73,7 @@ class EnglishVerbs(BaseClass):
             if file.read().strip() == '':
                 text: str = f'\nФайл пустой - {path_to_file}\n'
                 notification: Notification = Notification(
-                    subject='english_words_past',
+                    subject='english',
                     title='English word to repeat',
                     content=text
                 )
@@ -87,9 +87,10 @@ class EnglishVerbs(BaseClass):
                 if line == '':
                     continue
 
-                if re.findall(r'^#.+[^!]?:', line):
-                    line: str = re.sub('^#', '', line).strip()
-                else:
+                if re.findall(r'^#.+', line):
+                    continue
+
+                if re.findall(r'^#[а-я]+?\:[a-z]+$', line) or re.findall(r'^# [а-я]+?\:[a-z]+$', line):
                     continue
 
                 if re.findall(r'^-\s?[а-я|А-Я|\s|\,|\.|\-|\!|\(|\)]+?\:[a-z|A-Z|\s|\,|\.|\-|\!|\(|\)]+$', line):
@@ -103,7 +104,7 @@ class EnglishVerbs(BaseClass):
                 else:
                     text: str = f'\nСлово записано неправильно - {line}\n'
                     notification: Notification = Notification(
-                        subject='english_words_past',
+                        subject='english',
                         title='English word to repeat',
                         content=text
                     )
@@ -114,7 +115,7 @@ class EnglishVerbs(BaseClass):
         if not all_words_from_file:
             text: str = f'Нет слов для повторения'
             notification: Notification = Notification(
-                subject='english_words_past',
+                subject='english',
                 title='English word to repeat',
                 content=text
             )
@@ -147,7 +148,7 @@ class EnglishVerbs(BaseClass):
             content = file.read()
             db = json.loads(content)
 
-        last_word_number: int | None = db.get('last_word_verb_past_number')
+        last_word_number: int | None = db.get('last_word_number')
 
 
         if last_word_number is not None and len(all_words_from_file) == 1:
@@ -174,7 +175,7 @@ class EnglishVerbs(BaseClass):
             word: str = line
             new_last_word_number = 0
 
-        db['last_word_verb_past_number'] = new_last_word_number
+        db['last_word_number'] = new_last_word_number
 
         with open(self.path_to_db, 'w') as file:
             json.dump(db, file)
@@ -197,7 +198,7 @@ class EnglishVerbs(BaseClass):
         words_to_repeat: List[str] = []
 
         self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем первое слово
-        # self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем второе слово
+        self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем второе слово
 
         self.add_permanent_words(all_words_from_file, words_to_repeat)
 
@@ -229,7 +230,7 @@ class EnglishVerbs(BaseClass):
                 word = f'+ {word}'
 
             information_for_notification: Notification = Notification(
-                subject='english_words_past',
+                subject='english',
                 title='English verb to repeat',
                 content=word
             )
@@ -245,7 +246,7 @@ class EnglishVerbs(BaseClass):
             all_words_from_file: List[str] = self.get_all_words_from_db()
             word = self.get_translation_of_word(arguments, all_words_from_file)
             information_for_notification: Notification = Notification(
-                subject='english_words_past',
+                subject='english',
                 title='English verb to repeat',
                 content=word
             )

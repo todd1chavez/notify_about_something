@@ -1,35 +1,3 @@
-# Все неправильные глаголы
-# водить (машину):drive drove driven
-# рассказывать:tell told told
-# держать, сохранять, соблюдать:keep kept kept
-# есть (еду):eat ate eaten
-# цепляться:cling clung clung
-ездить:ride rode ridden
-# кровоточить:bleed bled bled
-# связывать:bind bound bound
-запрещать - запрещать:forbid forbade forbidden
-# терять:lose lost lost
-# приносить:bring brought brought
-# покупать:buy bought bought
-# пить:drink drank drunk
-# становиться:become became become
-# копать:dig dug dug
-# брать:take took taken
-# давать:give gave given
-забывать:forget forgot forgotten
-# приходить:come came come
-# идти:go went gone
-# звонить:ring rang rung
-
-# Часто используемые фразы
-# Ничего себе:Good grief!
-# Быть наивным:be born yesterday
-# Вчера родиться:be born yesterday
-
-# Неправильные глаголы
-# давать взаймы:lend lent lent
-# зажигать, освещать:light lit lit
-
 # 21-11-2025
 # писать:write wrote written
 # будить:wake woke woken
@@ -100,13 +68,23 @@
 # опухать:swell swelled swollen
 
 # 27-01-2026
-прощать:forgive forgave forgiven
-кусать:bite bit bitten
+# прощать:forgive forgave forgiven
+# кусать:bite bit bitten
 
 # 04-02-2026
-давать взаймы:lend lent lent
-носить (одежду):wear wore worn
+# давать взаймы:lend lent lent
+# носить (одежду):wear wore worn
 
 # 10-02-2026
 вонять:stink stank stunk
 клясться, ругаться:swear swore swron
+
+# 25-02-2026
+вести дела:deal dealt dealt
+# делать:do did done
+сбегать:flee fled fled
+замораживать:freeze froze frozen
+
+# 02-03-2026
+трясти:shake shook shaken
+портить:spoil spoilt spoilt

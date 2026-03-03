@@ -1,23 +1,27 @@
 from typing import List, Tuple, Dict
-import subprocess
-from plyer import notification as pn
-import platform
+import asyncio
 
 from math_tasks import MathTasks
 from english_words import EnglishWords
+from english_verbs_past import EnglishVerbsPast
 from english_rules import EnglishRules
 from english_phrases import EnglishPhrases
 from english_verbs import EnglishVerbs
+from english_words_past import EnglishWordsPast
 from services import Services, Notification
 from notification import NotificationTkinter, NotificationTelegram
+import telegram_bot_for_notify_about_something
 
 
 
 notification_topics: List = [
     # MathTasks(),
     EnglishWords(),
-    EnglishPhrases(),
+    EnglishVerbsPast(),
+    # EnglishPhrases(),
     EnglishRules(),
+
+    EnglishWordsPast(),
     EnglishVerbs(),
 ]
 
@@ -52,8 +56,10 @@ def main(arguments: Tuple | None) -> None:
     for notification_topic in notification_topics:
         if arguments and arguments.module_name == 'english_rules' and not isinstance(notification_topic, EnglishRules): continue
         if arguments and arguments.module_name == 'english_words' and not isinstance(notification_topic, EnglishWords): continue
-        if arguments and arguments.module_name == 'english_phrases' and not isinstance(notification_topic, EnglishPhrases): continue
-        if arguments and arguments.module_name == 'english_verbs' and not isinstance(notification_topic, EnglishVerbs): continue
+        if arguments and arguments.module_name == 'english_verbs' and not isinstance(notification_topic, EnglishVerbsPast): continue
+        # if arguments and arguments.module_name == 'english_phrases' and not isinstance(notification_topic, EnglishPhrases): continue
+        # if arguments and arguments.module_name == 'english_verbs' and not isinstance(notification_topic, EnglishVerbs): continue
+        if arguments and arguments.module_name == 'english_words_past' and not isinstance(notification_topic, EnglishWordsPast): continue
 
         information_for_notification: List[Notification] = notification_topic.get_information_for_notification(arguments)
         add_notification_to_list(list_of_notifications, information_for_notification)
@@ -66,3 +72,4 @@ def main(arguments: Tuple | None) -> None:
 if __name__ == '__main__':
     arguments: Tuple | None = Services.get_arguments()
     main(arguments)
+

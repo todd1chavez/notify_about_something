@@ -19,6 +19,8 @@ from notification import NotificationTkinter
 def send_notification(notification: Notification) -> None:
     """ Отправляем уведомление """
 
+    print(notification.content)
+    """
     if platform.system() == 'Windows':
         pn.notify(
            title=notification.title,
@@ -33,27 +35,28 @@ def send_notification(notification: Notification) -> None:
             notification.title,
             notification.content,
         ])
+    """
 
 
-class EnglishVerbs(BaseClass):
-    """ Повторяем английские слова (глаголы) """
+class EnglishWordsPast(BaseClass):
+    """ Повторяем английские слова, которые были добавлены ранее """
 
     def __init__(self):
         self.module_name: str = 'english_words_past'
         self.project_path: str = self.get_project_path()
-        self.path_to_db: str = f'{self.project_path}/db/english_verbs.json'
+        self.path_to_db: str = f'{self.project_path}/db/english_words.json'
 
 
     def get_all_words_from_file(self) -> List:
         """ Получаем все слова из файла """
 
         all_words_from_file: List[str] = []
-        path_to_file: str = f'{self.project_path}/list_of_english_verbs.txt'
+        path_to_file: str = f'{self.project_path}/list_of_english_words.txt'
         if not os.path.exists(path_to_file):
-            text: str = 'Отсутствует файл list_of_english_verbs.txt'
+            text: str = 'Отсутствует файл list_of_english_words.txt'
             notification: Notification = Notification(
                 subject='english_words_past',
-                title='English word to repeat',
+                title='English word past to repeat',
                 content=text
             )
             send_notification(notification)
@@ -63,7 +66,7 @@ class EnglishVerbs(BaseClass):
             text: str = f'\nФайл пустой - {path_to_file}\n'
             notification: Notification = Notification(
                 subject='english_words_past',
-                title='English word to repeat',
+                title='English word past to repeat',
                 content=text
             )
             send_notification(notification)
@@ -74,7 +77,7 @@ class EnglishVerbs(BaseClass):
                 text: str = f'\nФайл пустой - {path_to_file}\n'
                 notification: Notification = Notification(
                     subject='english_words_past',
-                    title='English word to repeat',
+                    title='English word past to repeat',
                     content=text
                 )
                 send_notification(notification)
@@ -104,7 +107,7 @@ class EnglishVerbs(BaseClass):
                     text: str = f'\nСлово записано неправильно - {line}\n'
                     notification: Notification = Notification(
                         subject='english_words_past',
-                        title='English word to repeat',
+                        title='English word past to repeat',
                         content=text
                     )
                     send_notification(notification)
@@ -115,7 +118,7 @@ class EnglishVerbs(BaseClass):
             text: str = f'Нет слов для повторения'
             notification: Notification = Notification(
                 subject='english_words_past',
-                title='English word to repeat',
+                title='English word past to repeat',
                 content=text
             )
             send_notification(notification)
@@ -147,7 +150,7 @@ class EnglishVerbs(BaseClass):
             content = file.read()
             db = json.loads(content)
 
-        last_word_number: int | None = db.get('last_word_verb_past_number')
+        last_word_number: int | None = db.get('last_word_past_number')
 
 
         if last_word_number is not None and len(all_words_from_file) == 1:
@@ -174,7 +177,7 @@ class EnglishVerbs(BaseClass):
             word: str = line
             new_last_word_number = 0
 
-        db['last_word_verb_past_number'] = new_last_word_number
+        db['last_word_past_number'] = new_last_word_number
 
         with open(self.path_to_db, 'w') as file:
             json.dump(db, file)
@@ -197,7 +200,8 @@ class EnglishVerbs(BaseClass):
         words_to_repeat: List[str] = []
 
         self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем первое слово
-        # self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем второе слово
+        self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем второе слово
+        # self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем третье слово
 
         self.add_permanent_words(all_words_from_file, words_to_repeat)
 
@@ -223,14 +227,13 @@ class EnglishVerbs(BaseClass):
         result: List[Notification] = []
 
         for word in words:
-
             if re.findall(r'^-', word):
                 word = re.sub(r'^-\s?', '', word).strip()
                 word = f'+ {word}'
 
             information_for_notification: Notification = Notification(
                 subject='english_words_past',
-                title='English verb to repeat',
+                title='English word past to repeat',
                 content=word
             )
             result.append(information_for_notification)
@@ -246,7 +249,7 @@ class EnglishVerbs(BaseClass):
             word = self.get_translation_of_word(arguments, all_words_from_file)
             information_for_notification: Notification = Notification(
                 subject='english_words_past',
-                title='English verb to repeat',
+                title='English word past to repeat',
                 content=word
             )
             result = [information_for_notification]

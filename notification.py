@@ -1,6 +1,8 @@
 from typing import List, Dict
 import time
 import re
+import json
+import os
 
 import tkinter as tk
 import ctypes
@@ -145,14 +147,51 @@ class NotificationTelegram:
             return content
 
 
+    def get_path_to_image(self, image_name: str) -> str:
+        """ Получаем путь к изображению """
+        
+        project_path: str = os.path.abspath(                 
+            os.path.join(os.path.dirname(__file__)) 
+        )                                                    
+
+        path_to_image: str = f'{project_path}/images/{image_name}'
+        return path_to_image
+
+
     def send_message(self, notification: str) -> None:
         """ Отправляем сообщение с уведомлением """
+
+        url: str = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto'
+        path_to_image: str = self.get_path_to_image('mountains_or_hills.jpg')
+
+        with open(path_to_image, 'rb') as image:
+            files = {'photo': image}
+
+            payload = {
+                'chat_id': TELEGRAM_ADMIN_ID,
+                'caption': notification,
+                'parse_mode': 'MarkdownV2'
+            }
+            requests.post(url, data=payload, files=files)
+
+
+    def send_message_with_inline_keyboard(self, notification: str) -> None:
+        """ Отправляем сообщение с inline-клавиатурой """
+
+        reply_markup = {
+            "inline_keyboard": [
+                [
+                    {"text": "Повторить еще раз", "callback_data": "again"},
+                    ],
+                ]
+            }
 
         url: str = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
         payload = {
             'chat_id': TELEGRAM_ADMIN_ID,
             'text': notification,
-            'parse_mode': 'MarkdownV2'
+            'parse_mode': 'MarkdownV2',
+            'reply_markup': json.dumps(reply_markup)
         }
         response = requests.post(url, data=payload)
         print(response.text)
@@ -193,6 +232,34 @@ class NotificationTelegram:
         return result
 
 
+    def create_general_notification_english_words_past(self, list_of_notifications: List) -> str:
+        """ Создаем общее уведомление для слов, которые повторялись ранее """
+
+        result: str = 'These words were repeated earlier:\n\n'
+        full_answer: str = ''
+
+        for count, notification in enumerate(list_of_notifications, 1):
+            content = self.get_content(notification.content)
+
+            if len(content) == 1:
+                message: str = content
+            elif len(content) > 1:
+                question, answer = content
+                result += f'{count}. {question}\n'
+                full_answer += f'{count}. {answer}\n'
+            else:
+                raise ValueError(f'Такой аргумент не обрабатывается - {content}')
+
+        escaped_full_answer = self.escape_markdown_v2(full_answer)
+
+        result += f'\nThe answers are bellow:\n\n'
+        result = re.escape(result)
+        result += f'||{escaped_full_answer}||'
+        print(result)
+
+        return result
+
+
     def show_all_notifications(self, list_of_notifications: Dict) -> None:
         """ Показываем все уведомления """
 
@@ -201,3 +268,6 @@ class NotificationTelegram:
                 notification: str = self.create_general_notification_english(list_of_notifications[subject])
                 self.send_message(notification)
 
+            if subject == 'english_words_past':
+                notification: str = self.create_general_notification_english_words_past(list_of_notifications[subject])
+                self.send_message_with_inline_keyboard(notification)
