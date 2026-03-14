@@ -235,7 +235,7 @@ class EnglishWords(BaseClass):
 
         self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем первое слово
         self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем второе слово
-        # self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем третье слово
+        self.add_new_word_for_repeat(all_words_from_file, words_to_repeat) # Добавляем третье слово
 
         self.add_permanent_words(all_words_from_file, words_to_repeat)
 

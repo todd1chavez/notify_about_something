@@ -1,3 +1,6 @@
+# !взять ответственность на себя:take the helm
+
+
 # зажигать, освещать:light lit lit
 
 # !21-11-2025
@@ -83,9 +86,25 @@
 # !25-02-2026
 # вести дела:deal dealt dealt
 # делать:do did done
-сбегать:flee fled fled
-замораживать:freeze froze frozen
+# сбегать:flee fled fled
+# замораживать:freeze froze frozen
 
 # !02-03-2026
-трясти:shake shook shaken
-портить:spoil spoilt spoilt
+# трясти:shake shook shaken
+# портить:spoil spoilt spoilt
+
+# !05-03-2026
+# устанавливать:set set set
+# говорить:speak spoke spoken
+# произносить или писать по буквам:spell spelt spelt
+
+# !08-03-2026
+рожать, переносить:bear bore born
+бить:beat beat beaten
+# становиться:become became become
+
+# !10-03-2026
+наклонять:bend bent bent
+# заключать пари:bet bet bet
+# дуть:blow blew blown
+начинать:begin began begun

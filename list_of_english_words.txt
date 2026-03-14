@@ -393,14 +393,43 @@
 # рождество:christmas
 
 # !25-02-2026
-скатерть:tablecloth
-мыльница:soap dish
-праздновать:celebrate
-вешалка:coat hanger
+# скатерть:tablecloth
+# мыльница:soap dish
+# праздновать:celebrate
+# вешалка:coat hanger
 
 # !02-03-2026
-пасха:easter
-подарок:present
-снеговик:snowman
-торжество:celebration
-свеча:candle
+# пасха:easter
+# подарок:present
+# снеговик:snowman
+# торжество:celebration
+# свеча:candle
+
+# !04-03-2026
+# отложить:postpone
+
+# !05-03-2026
+# званный ужин:dinner party
+# именины:name day
+# юбилей:jubilee
+# новогодняя елка:christmas tree
+# декорации:decorations
+# желание:wish
+бал-маскарад:costume party
+# торт:cake
+дед мороз:father christmas
+озеро:lake
+
+# !08-03-2026
+отпуск:vacation
+# шарики:balloons
+# конфетти:confetti
+мишура:tinsel
+# фейерверк:fireworks
+каникулы:holidays
+
+# !10-03-2026
+штаны:pants
+подарочные коробки:gift boxes
+поздравления:greetings
+оберточная бумага:wrapping paper
