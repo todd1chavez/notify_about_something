@@ -232,7 +232,7 @@ class NotificationTelegram:
         return result
 
 
-    def create_general_notification_english_words_past(self, list_of_notifications: List) -> str:
+    def create_general_notification_english_words_past(self, list_of_notifications: List, math_expr) -> str:
         """ Создаем общее уведомление для слов, которые повторялись ранее """
 
         result: str = 'These words were repeated earlier:\n\n'
@@ -250,12 +250,17 @@ class NotificationTelegram:
             else:
                 raise ValueError(f'Такой аргумент не обрабатывается - {content}')
 
+
+
         escaped_full_answer = self.escape_markdown_v2(full_answer)
 
         result += f'\nThe answers are bellow:\n\n'
         result = re.escape(result)
         result += f'||{escaped_full_answer}||'
-        print(result)
+
+        ff = result.split('The answers are bellow')
+        ff[0] += math_expr
+        result = 'The answers are bellow'.join(ff)
 
         return result
 
@@ -263,11 +268,22 @@ class NotificationTelegram:
     def show_all_notifications(self, list_of_notifications: Dict) -> None:
         """ Показываем все уведомления """
 
+        math_expr = list_of_notifications['math_expr'][0].content
+
         for subject in list_of_notifications:
+
+            """
+            if subject == 'math_expr':
+                notification = list_of_notifications[subject][0].content
+                print('\n\nNOTIFICATION\n\n', notification)
+                self.send_message_with_inline_keyboard(notification)
+
+            """
+
             if subject == 'english':
                 notification: str = self.create_general_notification_english(list_of_notifications[subject])
                 self.send_message(notification)
 
             if subject == 'english_words_past':
-                notification: str = self.create_general_notification_english_words_past(list_of_notifications[subject])
+                notification: str = self.create_general_notification_english_words_past(list_of_notifications[subject], math_expr)
                 self.send_message_with_inline_keyboard(notification)

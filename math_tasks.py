@@ -1,4 +1,5 @@
-from typing import Tuple
+from typing import Tuple, List
+import re
 import random
 
 from services import Notification
@@ -25,7 +26,7 @@ class MathTasks(BaseClass):
             second_number = min([first_number, second_number])
 
         result_of_math_expr = eval(f'{first_number} {sign} {second_number}')
-        result: str = f'? {sign} {second_number} = {result_of_math_expr}'
+        result: str = f'\n\\? \\{sign} {second_number} \\= {result_of_math_expr}'
         return result
 
 
@@ -41,7 +42,7 @@ class MathTasks(BaseClass):
             second_number = min([first_number, second_number])
 
         result_of_math_expr = eval(f'{first_number} {sign} {second_number}')
-        result: str = f'{first_number} {sign} ? = {result_of_math_expr}'
+        result: str = f'\n{first_number} \\{sign} \\? \\= {result_of_math_expr}'
         return result
 
 
@@ -52,12 +53,11 @@ class MathTasks(BaseClass):
         first_number: int = random.randint(2, 100)
         second_number: int = random.randint(2, 100)
 
-
-        result: str = f'{first_number} {sign} {second_number} = ?'
+        result: str = f'\n{first_number} \\{sign} {second_number} \\= \\?'
         return result
 
 
-    def get_information_for_notification(self, arguments: Tuple | None) -> Notification:
+    def get_information_for_notification(self, arguments: Tuple | None) -> List[Notification]:
         """ Получаем информацию для уведомления """
 
         if arguments and arguments.module_name == self.module_name:
@@ -73,7 +73,8 @@ class MathTasks(BaseClass):
         math_expr: str = random.choice(methods)()
 
         information_for_notification: Notification = Notification(
-            title='Solve the mathematical expression',
+            subject='math_expr',
+            title='math_expr',
             content=math_expr
         )
-        return information_for_notification
+        return [information_for_notification]

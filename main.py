@@ -15,9 +15,10 @@ import telegram_bot_for_notify_about_something
 
 
 notification_topics: List = [
-    # MathTasks(),
     EnglishWords(),
     EnglishVerbsPast(),
+
+    MathTasks(),
     # EnglishPhrases(),
     EnglishRules(),
 
@@ -62,6 +63,7 @@ def main(arguments: Tuple | None) -> None:
         if arguments and arguments.module_name == 'english_words_past' and not isinstance(notification_topic, EnglishWordsPast): continue
 
         information_for_notification: List[Notification] = notification_topic.get_information_for_notification(arguments)
+        print(information_for_notification)
         add_notification_to_list(list_of_notifications, information_for_notification)
 
     list_of_notifications: Dict = split_notification_by_topics(list_of_notifications)
