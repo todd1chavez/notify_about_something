@@ -2,6 +2,11 @@
 
 
 # зажигать, освещать:light lit lit
+# копать:dig dug dug
+# рисовать:draw drew drawn
+# пить:drink drank drunk
+# падать:fall fell fallen
+# кормить:feed fed fed
 
 # !21-11-2025
 # писать:write wrote written
@@ -108,3 +113,8 @@
 # заключать пари:bet bet bet
 # дуть:blow blew blown
 начинать:begin began begun
+
+# !14-03-2026
+цепляться:cling clung clung
+приходить:come came come
+чувствовать:feel felt felt
