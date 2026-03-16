@@ -9,7 +9,7 @@ from english_phrases import EnglishPhrases
 from english_verbs import EnglishVerbs
 from english_words_past import EnglishWordsPast
 from services import Services, Notification
-from notification import NotificationTkinter, NotificationTelegram
+from notification import NotificationTelegram
 import telegram_bot_for_notify_about_something
 
 

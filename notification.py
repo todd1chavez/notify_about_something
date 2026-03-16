@@ -4,9 +4,9 @@ import re
 import json
 import os
 
-import tkinter as tk
+# import tkinter as tk
 import ctypes
-from plyer import notification as pn
+# from plyer import notification as pn
 import requests
 
 from services import Notification

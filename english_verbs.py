@@ -8,11 +8,9 @@ import json
 from json.decoder import JSONDecodeError
 import subprocess
 import platform
-from plyer import notification as pn
 
 from services import Notification
 from services import BaseClass, Services
-from notification import NotificationTkinter
 
 
 
@@ -20,19 +18,9 @@ def send_notification(notification: Notification) -> None:
     """ Отправляем уведомление """
 
     if platform.system() == 'Windows':
-        pn.notify(
-           title=notification.title,
-            message=notification.content,
-            app_name='time to repeat',
-            timeout=10000
-        )
+        pass
     else:
-        subprocess.run([
-            'notify-send',
-            '-t', '0',
-            notification.title,
-            notification.content,
-        ])
+        pass
 
 
 class EnglishVerbs(BaseClass):

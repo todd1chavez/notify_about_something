@@ -7,7 +7,6 @@ import re
 import json
 from json.decoder import JSONDecodeError
 import subprocess
-from plyer import notification as pn
 import platform
 
 from services import Notification
@@ -19,19 +18,9 @@ def send_notification(notification: Notification) -> None:
     """ Отправляем уведомление """
 
     if platform.system() == 'Windows':
-        pn.notify(
-           title=notification.title,
-            message=notification.content,
-            app_name='time to repeat',
-            timeout=10000
-        )
+        pass
     else:
-        subprocess.run([
-            'notify-send',
-            '-t', '0',
-            notification.title,
-            notification.content,
-        ])
+        pass
 
 
 class EnglishPhrases(BaseClass):

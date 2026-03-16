@@ -9,7 +9,6 @@ from json.decoder import JSONDecodeError
 import subprocess
 import xml.etree.ElementTree as ET
 import platform
-from plyer import notification as pn
 
 from services import Notification, Rule
 from services import BaseClass, Services
@@ -26,19 +25,9 @@ def send_notification(title: str, content: str, quit: bool = False) -> None:
     )
 
     if platform.system() == 'Windows':
-        pn.notify(
-            title=notification.title,
-            message=notification.content,
-            app_name='time to repeat',
-            timeout=10000
-        )
+        pass
     else:
-        subprocess.run([
-            'notify-send',
-            '-t', '0',
-            notification.title,
-            notification.content,
-        ])
+        pass
 
     if quit: exit()
 
