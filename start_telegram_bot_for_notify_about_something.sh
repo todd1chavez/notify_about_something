@@ -13,7 +13,7 @@ then
   echo "Бот уже запущен"
 else
   echo "Запускаем бота"
-  /usr/bin/env python3 "$PATH_TO_FILE" &
+  /root/notify_about_something/venv/bin/python "$PATH_TO_FILE" &
 fi
  
 

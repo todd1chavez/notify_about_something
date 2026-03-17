@@ -21,7 +21,7 @@ execute_script() {
   previous_launch_time=$(date +%M)
   echo "$previous_launch_time" > "$PATH_TO_FILE2"
   bash $PATH_TO_FILE1
-  /usr/bin/env python3 "$PATH_TO_FILE"
+  /root/notify_about_something/venv/bin/python "$PATH_TO_FILE"
 }
 
 execute_script
