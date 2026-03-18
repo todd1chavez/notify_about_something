@@ -415,24 +415,44 @@
 # новогодняя елка:christmas tree
 # декорации:decorations
 # желание:wish
-бал-маскарад:costume party
+# бал-маскарад:costume party
 # торт:cake
-дед мороз:father christmas
-озеро:lake
+# дед мороз:father christmas
+# озеро:lake
 
 # !08-03-2026
-отпуск:vacation
+# отпуск:vacation
 # шарики:balloons
 # конфетти:confetti
-мишура:tinsel
+# мишура:tinsel
 # фейерверк:fireworks
-каникулы:holidays
+# каникулы:holidays
 
 # !10-03-2026
-штаны:pants
-подарочные коробки:gift boxes
-поздравления:greetings
-оберточная бумага:wrapping paper
+# штаны:pants
+# подарочные коробки:gift boxes
+# поздравления:greetings
+# оберточная бумага:wrapping paper
 
 # !14-03-2026
 налог:tax
+
+
+# !18-03-2026
+фауна:fauna
+море:sea
+гирлянды:coloured lights
+солнце:sun
+сбор всей семью:family reunion
+вредный:harmful
+природа:nature
+экосистема:ecosystem
+среда обитания:habitat
+флора:flora
+гора:mountain
+океан:ocean
+река:river
+воздух:air
+луна:moon
+камень:rock
+остров:island

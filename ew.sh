@@ -24,7 +24,6 @@ execute_script() {
   /root/notify_about_something/venv/bin/python "$PATH_TO_FILE"
 }
 
-execute_script
 
 if [ "$(wc -c <"$PATH_TO_FILE2")" -eq 1 ] || [ "$(wc -c <"$PATH_TO_FILE2")" -eq 0 ]; then
   execute_script

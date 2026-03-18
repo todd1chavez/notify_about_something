@@ -272,14 +272,6 @@ class NotificationTelegram:
 
         for subject in list_of_notifications:
 
-            """
-            if subject == 'math_expr':
-                notification = list_of_notifications[subject][0].content
-                print('\n\nNOTIFICATION\n\n', notification)
-                self.send_message_with_inline_keyboard(notification)
-
-            """
-
             if subject == 'english':
                 notification: str = self.create_general_notification_english(list_of_notifications[subject])
                 self.send_message(notification)

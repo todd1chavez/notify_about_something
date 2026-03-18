@@ -1,5 +1,3 @@
-# !взять ответственность на себя:take the helm
-
 
 # зажигать, освещать:light lit lit
 # копать:dig dug dug
@@ -46,8 +44,8 @@
 # обматывать, изгибаться:wind wound wound
 
 # !19-01-2026
-# рвать:tear tore torn
-# искать:seek sought sought
+рвать:tear tore torn
+искать:seek sought sought
 
 # !20-01-2026
 # возрастать, подниматься:rise rose risen
@@ -104,17 +102,17 @@
 # произносить или писать по буквам:spell spelt spelt
 
 # !08-03-2026
-рожать, переносить:bear bore born
+# рожать, переносить:bear bore born
 бить:beat beat beaten
 # становиться:become became become
 
 # !10-03-2026
-наклонять:bend bent bent
+# наклонять:bend bent bent
 # заключать пари:bet bet bet
 # дуть:blow blew blown
 начинать:begin began begun
 
 # !14-03-2026
-цепляться:cling clung clung
+# цепляться:cling clung clung
 приходить:come came come
 чувствовать:feel felt felt
