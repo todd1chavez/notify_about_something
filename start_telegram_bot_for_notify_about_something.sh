@@ -13,9 +13,7 @@ then
   echo "Бот уже запущен"
 else
   echo "Запускаем бота"
-  /root/notify_about_something/venv/bin/python "$PATH_TO_FILE" &
+  source /home/me01/foo/utility/notify_about_something/venv/bin/activate
+  /home/me01/foo/utility/notify_about_something/venv/bin/python "$PATH_TO_FILE" &
+  
 fi
- 
-
-# Можно сохранить PID в файл
-# echo $! > telegram_bot.pid

@@ -8,9 +8,10 @@ import os
 import ctypes
 # from plyer import notification as pn
 import requests
+from requests.auth import HTTPProxyAuth
 
 from services import Notification
-from config import TELEGRAM_ADMIN_ID, TELEGRAM_BOT_TOKEN
+import config
 
 
 
@@ -136,6 +137,18 @@ class NotificationTkinter:
 class NotificationTelegram:
     """ Показываем уведомление через telegram """
 
+    def send_request(self, **kwargs) -> None:
+        """ Отправляем запрос через прокси """
+
+        proxy_url = f'http://{config.PROXY_LOGIN}:{config.PROXY_PASSWORD}@{config.PROXY_IP}:{config.PROXY_PORT}'
+        proxies: Dict = {
+            'http': proxy_url,
+            'https': proxy_url,
+        }
+        auth = HTTPProxyAuth(config.PROXY_LOGIN, config.PROXY_PASSWORD)
+        requests.post(proxies=proxies, auth=auth, **kwargs)
+
+
     def get_content(self, content: str) -> None:
         """ Разделяем вопрос с ответом, если это вопрос и там есть ответ """
 
@@ -161,18 +174,18 @@ class NotificationTelegram:
     def send_message(self, notification: str) -> None:
         """ Отправляем сообщение с уведомлением """
 
-        url: str = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto'
+        url: str = f'https://api.telegram.org/bot{config.TELEGRAM_BOT_TOKEN}/sendPhoto'
         path_to_image: str = self.get_path_to_image('mountains_or_hills.jpg')
 
         with open(path_to_image, 'rb') as image:
             files = {'photo': image}
 
-            payload = {
-                'chat_id': TELEGRAM_ADMIN_ID,
+            data = {
+                'chat_id': config.TELEGRAM_ADMIN_ID,
                 'caption': notification,
                 'parse_mode': 'MarkdownV2'
             }
-            requests.post(url, data=payload, files=files)
+            self.send_request(url=url, data=data, files=files)
 
 
     def send_message_with_inline_keyboard(self, notification: str) -> None:
@@ -186,15 +199,14 @@ class NotificationTelegram:
                 ]
             }
 
-        url: str = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
-        payload = {
-            'chat_id': TELEGRAM_ADMIN_ID,
+        url: str = f'https://api.telegram.org/bot{config.TELEGRAM_BOT_TOKEN}/sendMessage'
+        data = {
+            'chat_id': config.TELEGRAM_ADMIN_ID,
             'text': notification,
             'parse_mode': 'MarkdownV2',
             'reply_markup': json.dumps(reply_markup)
         }
-        response = requests.post(url, data=payload)
-        print(response.text)
+        self.send_request(url=url, data=data)
 
 
     def escape_markdown_v2(self, text: str) -> str:

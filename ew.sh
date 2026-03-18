@@ -18,12 +18,15 @@ previous_launch_time=$(cat "$PATH_TO_FILE2" 2>/dev/null)
 
 
 execute_script() {
+  echo "python -v $(which python)"
+  source /home/me01/foo/utility/notify_about_something/venv/bin/activate
   previous_launch_time=$(date +%M)
   echo "$previous_launch_time" > "$PATH_TO_FILE2"
   bash $PATH_TO_FILE1
-  /root/notify_about_something/venv/bin/python "$PATH_TO_FILE"
+  /home/me01/foo/utility/notify_about_something/venv/bin/python "$PATH_TO_FILE"
 }
 
+execute_script
 
 if [ "$(wc -c <"$PATH_TO_FILE2")" -eq 1 ] || [ "$(wc -c <"$PATH_TO_FILE2")" -eq 0 ]; then
   execute_script

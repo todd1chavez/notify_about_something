@@ -17,3 +17,8 @@ else: raise Exception('Не найден файл .env')
 TELEGRAM_ADMIN_ID: str = os.getenv('TELEGRAM_ADMIN_ID')
 TELEGRAM_BOT_TOKEN: str = os.getenv('TELEGRAM_BOT_TOKEN')
 
+# Конфигурация для прокси
+PROXY_IP: str = os.getenv('PROXY_IP')
+PROXY_PORT: str = os.getenv('PROXY_PORT')
+PROXY_LOGIN: str = os.getenv('PROXY_LOGIN')
+PROXY_PASSWORD: str = os.getenv('PROXY_PASSWORD')

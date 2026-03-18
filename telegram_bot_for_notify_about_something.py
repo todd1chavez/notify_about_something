@@ -6,8 +6,11 @@ import json
 from aiogram import Bot, Dispatcher, types
 from aiogram import F
 from aiogram.fsm.storage.memory import MemoryStorage
+from aiohttp import BasicAuth
+from aiogram.client.session.aiohttp import AiohttpSession
 
-from config import TELEGRAM_ADMIN_ID, TELEGRAM_BOT_TOKEN
+import config
+
 
 
 
@@ -70,7 +73,12 @@ def change_index_for_following_words():
 
 
 async def main():
-    bot = Bot(token=TELEGRAM_BOT_TOKEN)
+
+    proxy_url: str = f'http://{config.PROXY_IP}:{config.PROXY_PASSWORD}'
+    auth = BasicAuth(login=config.PROXY_LOGIN, password=config.PROXY_PASSWORD)
+    session = AiohttpSession(proxy=(proxy_url, auth))
+
+    bot = Bot(token=config.TELEGRAM_BOT_TOKEN, session=session)
     dp = Dispatcher()
 
     @dp.callback_query(F.data == 'again')
