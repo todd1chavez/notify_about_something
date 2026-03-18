@@ -26,7 +26,13 @@ class MathTasks(BaseClass):
             second_number = min([first_number, second_number])
 
         result_of_math_expr = eval(f'{first_number} {sign} {second_number}')
-        result: str = f'\n\\? \\{sign} {second_number} \\= {result_of_math_expr}'
+
+        if sign == '-':
+            right_answer: str = result_of_math_expr + second_number
+        else:
+            right_answer: str = result_of_math_expr - second_number
+
+        result: str = f'\n||{right_answer}|| \\{sign} {second_number} \\= {result_of_math_expr}'
         return result
 
 
@@ -42,7 +48,13 @@ class MathTasks(BaseClass):
             second_number = min([first_number, second_number])
 
         result_of_math_expr = eval(f'{first_number} {sign} {second_number}')
-        result: str = f'\n{first_number} \\{sign} \\? \\= {result_of_math_expr}'
+
+        if sign == '-':
+            right_answer: str = first_number - result_of_math_expr
+        else:
+            right_answer: str = result_of_math_expr - first_number
+
+        result: str = f'\n{first_number} \\{sign} ||{right_answer}|| \\= {result_of_math_expr}'
         return result
 
 
@@ -52,8 +64,9 @@ class MathTasks(BaseClass):
         sign = random.choice(['+', '-'])
         first_number: int = random.randint(2, 100)
         second_number: int = random.randint(2, 100)
+        result_of_expression = eval(f'{first_number} {sign} {second_number}')
 
-        result: str = f'\n{first_number} \\{sign} {second_number} \\= \\?'
+        result: str = f'\n{first_number} \\{sign} {second_number} \\= ||{result_of_expression}||'
         return result
 
 
